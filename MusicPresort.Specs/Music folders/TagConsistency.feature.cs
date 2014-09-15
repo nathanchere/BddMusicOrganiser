@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MusicPresort.Specs
+namespace MusicPresort.Specs.MusicFolders
 {
     using TechTalk.SpecFlow;
     
@@ -23,7 +23,7 @@ namespace MusicPresort.Specs
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "CleanFolders.feature"
+#line 1 "TagConsistency.feature"
 #line hidden
         
         public VerifyingConsistencyOfTagsFeature()
@@ -82,13 +82,13 @@ namespace MusicPresort.Specs
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I pass in a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I the folder has", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder has MP3s with mixed artist names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
  testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the folder should be filtered out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -101,6 +101,14 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mixed album names", ((string[])(null)));
 #line 12
 this.ScenarioSetup(scenarioInfo);
+#line 13
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.And("the folder has MP3s with mixed album names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.Then("the folder should be filtered out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -111,8 +119,16 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void MissingArtistNames()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing artist names", ((string[])(null)));
-#line 14
+#line 18
 this.ScenarioSetup(scenarioInfo);
+#line 19
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.And("the folder has MP3s with missing artist names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+ testRunner.Then("the folder should be filtered out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -123,7 +139,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void MissingTrackNames()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing track names", ((string[])(null)));
-#line 16
+#line 24
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -135,7 +151,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void MissingTrackNumbers()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing track numbers", ((string[])(null)));
-#line 18
+#line 26
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -147,7 +163,19 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void IncompleteSequenceOfTrackNumbers()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incomplete sequence of track numbers", ((string[])(null)));
-#line 20
+#line 28
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Verifying consistency of tags")]
+        [Xunit.TraitAttribute("Description", "No tags")]
+        public virtual void NoTags()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No tags", ((string[])(null)));
+#line 30
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
