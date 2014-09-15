@@ -7,6 +7,7 @@ using TechTalk.SpecFlow;
 
 namespace MusicPresort.Specs
 {
+    [Binding]
     class MusicFolderTests
     {
         private MusicFolder _folder;
@@ -23,14 +24,33 @@ namespace MusicPresort.Specs
             _folder.Add(new MusicFile{});
         }
 
+        [When(@"I process the folder")]
+        public void WhenIProcessTheFolder()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"the folder should be filtered out")]
+        public void ThenTheFolderShouldBeFilteredOut()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
 
     }
 
     public class MusicFolder
     {
+        public List<MusicFile> _files;
+
+        public MusicFolder()
+        {
+            _files = new List<MusicFile>();
+        }
+
         public void Add(MusicFile musicFile)
         {
-            throw new NotImplementedException();
+            _files.Add(musicFile);
         }
     }
 

@@ -49,18 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="CleanFolders.feature.cs">
+    <Compile Include="Music folders\TagConsistency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CleanFolders.feature</DependentUpon>
+      <DependentUpon>TagConsistency.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="CleanFolders.feature">
+    <None Include="Music folders\TagConsistency.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CleanFolders.feature.cs</LastGenOutput>
+      <LastGenOutput>TagConsistency.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
