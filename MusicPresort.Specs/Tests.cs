@@ -42,7 +42,7 @@ namespace MusicPresort.Specs
         }
 
         [Given(@"the folder has MP3s with mixed artist names")]
-        public void GivenTheFolderHasMPsWithMixedArtistNames()
+        public void GivenTheFolderHasMP3sWithMixedArtistNames()
         {
             AddFile("Some artist", "Some album", "Track 1",1);
             AddFile("Some artist", "Some album", "Track 2",2);
@@ -50,7 +50,7 @@ namespace MusicPresort.Specs
         }
 
         [Given(@"the folder has MP3s with missing track titles")]
-        public void GivenTheFolderHasMPsWithMissingTrackTitles()
+        public void GivenTheFolderHasMP3sWithMissingTrackTitles()
         {
             AddFile("Some artist", "Some album", "Track 1",1);
             AddFile("Some artist", "Some album", "",2);
@@ -58,7 +58,7 @@ namespace MusicPresort.Specs
         }
 
         [Given(@"the folder has MP3s with an incomplete sequence of track numbers")]
-        public void GivenTheFolderHasMPsWithAnIncompleteSequenceOfTrackNumbers()
+        public void GivenTheFolderHasMP3sWithAnIncompleteSequenceOfTrackNumbers()
         {
             AddFile("Some artist", "Some album", "Track 1", 1);
             AddFile("Some artist", "Some album", "Track 2", 2);
@@ -67,15 +67,23 @@ namespace MusicPresort.Specs
 
 
         [Given(@"the folder has MP3s with missing track numbers")]
-        public void GivenTheFolderHasMPsWithMissingTrackNumbers()
+        public void GivenTheFolderHasMP3sWithMissingTrackNumbers()
         {
             AddFile("Some artist", "Some album", "Track 1", 1);
             AddFile("Some artist", "Some album", "Track 2", null);
             AddFile("Some artist", "Some album", "Track 3", 3);
         }
 
+        [Given(@"the folder has MP3s with invalid track numbers")]
+        public void GivenTheFolderHasMP3sWitInvalidTrackNumbers()
+        {
+            AddFile("Some artist", "Some album", "Track 1", 1);
+            AddFile("Some artist", "Some album", "Track 2", 0);
+            AddFile("Some artist", "Some album", "Track 3", 3);
+        }
+
         [Given(@"the folder has MP3s with missing album titles")]
-        public void GivenTheFolderHasMPsWithMissingAlbumTitles()
+        public void GivenTheFolderHasMP3sWithMissingAlbumTitles()
         {
             AddFile("Some artist", "", "Track 1",1);
             AddFile("Some artist", "", "Track 2",2);
@@ -84,7 +92,7 @@ namespace MusicPresort.Specs
 
 
         [Given(@"the folder has MP3s with missing artist names")]
-        public void GivenTheFolderHasMPsWithMissingArtistNames()
+        public void GivenTheFolderHasMP3sWithMissingArtistNames()
         {
             AddFile("", "Some album", "Track 1",1);
             AddFile("", "Some album", "Track 2",2);
@@ -92,7 +100,7 @@ namespace MusicPresort.Specs
         }
 
         [Given(@"the folder has MP3s with mixed album titles")]
-        public void GivenTheFolderHasMPsWithMixedAlbumTitles()
+        public void GivenTheFolderHasMP3sWithMixedAlbumTitles()
         {
             AddFile("Some artist", "Some album", "Track 1",1);
             AddFile("Some artist", "Different album", "Track 2",2);

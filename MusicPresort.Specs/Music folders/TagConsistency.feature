@@ -43,6 +43,12 @@ Scenario: Missing track numbers
 	When I process the folder
 	Then the folder should be filtered out
 
+Scenario: Invalid track numbers
+	Given I have a music folder
+	And the folder has MP3s with invalid track numbers
+	When I process the folder
+	Then the folder should be filtered out
+
 Scenario: Incomplete sequence of track numbers
 	Given I have a music folder
 	And the folder has MP3s with an incomplete sequence of track numbers
