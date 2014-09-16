@@ -3,23 +3,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace MusicPresort.Specs
 {
     [Binding]
     class MusicFolderTests
     {
-        private Thingy _thingy;
-        private MusicFolder _folder;
+        private readonly Thingy _thingy;
 
-        [BeforeFeature]
-        public void Setup()
-        {
-            _thingy = new Thingy(); 
-        }
+        private MusicFolder _folder;
 
         public MusicFolderTests()
         {
+            _thingy = new Thingy();
         }
 
         [Given(@"I have a music folder")]
@@ -52,7 +49,7 @@ namespace MusicPresort.Specs
         [Then(@"the folder should be filtered out")]
         public void ThenTheFolderShouldBeFilteredOut()
         {
-            ScenarioContext.Current.Pending();
+            Assert.Contains(_folder, _thingy.BadFolders);
         }
 
 
