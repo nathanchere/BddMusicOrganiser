@@ -24,6 +24,13 @@ namespace MusicPresort.Specs
             _folder.Add(new MusicFile{});
         }
 
+        [Given(@"the folder has MP3s with missing artist names")]
+        public void GivenTheFolderHasMPsWithMissingArtistNames()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
         [When(@"I process the folder")]
         public void WhenIProcessTheFolder()
         {
