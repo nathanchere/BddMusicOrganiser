@@ -20,10 +20,21 @@ namespace MusicPresort.Specs
 
         public void ProcessFolder(MusicFolder folder)
         {
-            if(folder._files.Any(IsArtistMissing))
+            if(!IsValid(folder))
                 BadFolders.Add(folder);
             else
                 GoodFolders.Add(folder);
+        }
+        
+        private bool IsValid(MusicFolder folder)
+        {
+            if(!folder._files.Any()) return false;
+
+            if (folder._files.Any(IsArtistMissing)) return false;
+
+            if (folder._files.Any(x => x.ArtistName != folder._files[0].ArtistName)) return false;
+
+            return true;
         }
     }
 }

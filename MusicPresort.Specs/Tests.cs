@@ -28,17 +28,30 @@ namespace MusicPresort.Specs
         [Given(@"the folder has MP3s with mixed artist names")]
         public void GivenTheFolderHasMPsWithMixedArtistNames()
         {
-            _folder.Add(new MusicFile{});
+            _folder.Add(new MusicFile { ArtistName = "Some artist" });
+            _folder.Add(new MusicFile { ArtistName = "Some artist" });
+            _folder.Add(new MusicFile { ArtistName = "Another artist" });
         }
 
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMPsWithMissingArtistNames()
         {
+            _folder.Add(new MusicFile { ArtistName = "Some artist" });
             _folder.Add(new MusicFile { ArtistName = "" });
-            _folder.Add(new MusicFile { ArtistName = "" });
-            _folder.Add(new MusicFile { ArtistName = "" });
+            _folder.Add(new MusicFile { ArtistName = "Another artist" });
         }
 
+        [Given(@"the folder has MP3s with mixed album titles")]
+        public void GivenTheFolderHasMPsWithMixedAlbumTitles()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Given(@"the folder has no MP3s")]
+        public void GivenTheFolderHasNoMPs()
+        {
+            // Nothing to do! :)
+        }
 
         [When(@"I process the folder")]
         public void WhenIProcessTheFolder()

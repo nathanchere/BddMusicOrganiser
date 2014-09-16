@@ -3,17 +3,15 @@
 	As a pre-sort filter
 	I want to filter out any invalid folders
 
-@ignore
 Scenario: Mixed artist names
 	Given I have a music folder
 	And the folder has MP3s with mixed artist names
 	When I process the folder
 	Then the folder should be filtered out
 
-@ignore
 Scenario: Mixed album names
 	Given I have a music folder
-	And the folder has MP3s with mixed album names
+	And the folder has MP3s with mixed album titles
 	When I process the folder
 	Then the folder should be filtered out
 
@@ -35,6 +33,10 @@ Scenario: Incomplete sequence of track numbers
 @ignore
 Scenario: No tags
 
-#Scenario: No MP3s
+Scenario: No MP3s
+	Given I have a music folder
+	And the folder has no MP3s
+	When I process the folder
+	Then the folder should be filtered out
 
 # TODO: how to deal with albumartist
