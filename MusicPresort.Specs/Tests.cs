@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +9,18 @@ namespace MusicPresort.Specs
     [Binding]
     class MusicFolderTests
     {
+        private Thingy _thingy;
         private MusicFolder _folder;
+
+        [BeforeFeature]
+        public void Setup()
+        {
+            _thingy = new Thingy(); 
+        }
+
+        public MusicFolderTests()
+        {
+        }
 
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
@@ -27,14 +37,16 @@ namespace MusicPresort.Specs
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMPsWithMissingArtistNames()
         {
-            ScenarioContext.Current.Pending();
+            _folder.Add(new MusicFile { ArtistName = "" });
+            _folder.Add(new MusicFile { ArtistName = "" });
+            _folder.Add(new MusicFile { ArtistName = "" });
         }
 
 
         [When(@"I process the folder")]
         public void WhenIProcessTheFolder()
         {
-            ScenarioContext.Current.Pending();
+            _thingy.ProcessFolder(_folder);
         }
 
         [Then(@"the folder should be filtered out")]
@@ -44,25 +56,5 @@ namespace MusicPresort.Specs
         }
 
 
-    }
-
-    public class MusicFolder
-    {
-        public List<MusicFile> _files;
-
-        public MusicFolder()
-        {
-            _files = new List<MusicFile>();
-        }
-
-        public void Add(MusicFile musicFile)
-        {
-            _files.Add(musicFile);
-        }
-    }
-
-    public class MusicFile
-    {
-        public string ArtistName { get; set; }
     }
 }
