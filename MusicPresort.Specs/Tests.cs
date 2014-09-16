@@ -21,13 +21,14 @@ namespace MusicPresort.Specs
 
         #region Helpers
 
-        private void AddFile(string artistName, string albumTitle, string trackTitle)
+        private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
             _folder._files.Add(
                 new MusicFile{
                     ArtistName = artistName,
                     AlbumTitle = albumTitle,
                     TrackTitle = trackTitle,
+                    TrackNumber = trackNumber
                 }
             );
         }
@@ -43,41 +44,59 @@ namespace MusicPresort.Specs
         [Given(@"the folder has MP3s with mixed artist names")]
         public void GivenTheFolderHasMPsWithMixedArtistNames()
         {
-            AddFile("Some artist", "Some album", "Track 1");
-            AddFile("Some artist", "Some album", "Track 2");
-            AddFile("Another artist", "Some album", "Track 3");
+            AddFile("Some artist", "Some album", "Track 1",1);
+            AddFile("Some artist", "Some album", "Track 2",2);
+            AddFile("Another artist", "Some album", "Track 3",3);
         }
 
         [Given(@"the folder has MP3s with missing track titles")]
-        public void GivenTheFolderHasMPsWithMissingTrackTitles(int p0)
+        public void GivenTheFolderHasMPsWithMissingTrackTitles()
         {
-            ScenarioContext.Current.Pending();
+            AddFile("Some artist", "Some album", "Track 1",1);
+            AddFile("Some artist", "Some album", "",2);
+            AddFile("Some artist", "Some album", "Track 3",3);
         }
 
+        [Given(@"the folder has MP3s with an incomplete sequence of track numbers")]
+        public void GivenTheFolderHasMPsWithAnIncompleteSequenceOfTrackNumbers()
+        {
+            AddFile("Some artist", "Some album", "Track 1", 1);
+            AddFile("Some artist", "Some album", "Track 2", 2);
+            AddFile("Some artist", "Some album", "Track 4", 4);
+        }
+
+
+        [Given(@"the folder has MP3s with missing track numbers")]
+        public void GivenTheFolderHasMPsWithMissingTrackNumbers()
+        {
+            AddFile("Some artist", "Some album", "Track 1", 1);
+            AddFile("Some artist", "Some album", "Track 2", null);
+            AddFile("Some artist", "Some album", "Track 3", 3);
+        }
 
         [Given(@"the folder has MP3s with missing album titles")]
         public void GivenTheFolderHasMPsWithMissingAlbumTitles()
         {
-            AddFile("Some artist", "", "Track 1");
-            AddFile("Some artist", "", "Track 2");
-            AddFile("Some artist", "", "Track 3");
+            AddFile("Some artist", "", "Track 1",1);
+            AddFile("Some artist", "", "Track 2",2);
+            AddFile("Some artist", "", "Track 3",3);
         }
 
 
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMPsWithMissingArtistNames()
         {
-            AddFile("", "Some album", "Track 1");
-            AddFile("", "Some album", "Track 2");
-            AddFile("", "Some album", "Track 3");
+            AddFile("", "Some album", "Track 1",1);
+            AddFile("", "Some album", "Track 2",2);
+            AddFile("", "Some album", "Track 3",3);
         }
 
         [Given(@"the folder has MP3s with mixed album titles")]
         public void GivenTheFolderHasMPsWithMixedAlbumTitles()
         {
-            AddFile("Some artist", "Some album", "Track 1");
-            AddFile("Some artist", "Different album", "Track 2");
-            AddFile("Some artist", "Some album", "Track 3");
+            AddFile("Some artist", "Some album", "Track 1",1);
+            AddFile("Some artist", "Different album", "Track 2",2);
+            AddFile("Some artist", "Some album", "Track 3",3);
         }
 
         [Given(@"the folder has no MP3s")]
