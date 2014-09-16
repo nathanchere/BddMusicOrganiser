@@ -27,9 +27,12 @@ Scenario: Missing album titles
 	When I process the folder
 	Then the folder should be filtered out
 
-@ignore
-Scenario: Missing track names
-	
+Scenario: Missing track titles
+	Given I have a music folder
+	And the folder has MP3s with missing track titles
+	When I process the folder
+	Then the folder should be filtered out
+
 @ignore
 Scenario: Missing track numbers
 

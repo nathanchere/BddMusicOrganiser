@@ -23,7 +23,13 @@ namespace MusicPresort.Specs
 
         private void AddFile(string artistName, string albumTitle, string trackTitle)
         {
-            _folder._files.Add(new MusicFile{ArtistName = artistName, AlbumTitle = albumTitle});
+            _folder._files.Add(
+                new MusicFile{
+                    ArtistName = artistName,
+                    AlbumTitle = albumTitle,
+                    TrackTitle = trackTitle,
+                }
+            );
         }
 
         #endregion
@@ -37,34 +43,41 @@ namespace MusicPresort.Specs
         [Given(@"the folder has MP3s with mixed artist names")]
         public void GivenTheFolderHasMPsWithMixedArtistNames()
         {
-            AddFile("Some artist", "Some album");
-            AddFile("Some artist", "Some album");
-            AddFile("Another artist", "Some album");
+            AddFile("Some artist", "Some album", "Track 1");
+            AddFile("Some artist", "Some album", "Track 2");
+            AddFile("Another artist", "Some album", "Track 3");
         }
+
+        [Given(@"the folder has MP3s with missing track titles")]
+        public void GivenTheFolderHasMPsWithMissingTrackTitles(int p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
 
         [Given(@"the folder has MP3s with missing album titles")]
         public void GivenTheFolderHasMPsWithMissingAlbumTitles()
         {
-            AddFile("Some artist", "");
-            AddFile("Some artist", "");
-            AddFile("Some artist", "");
+            AddFile("Some artist", "", "Track 1");
+            AddFile("Some artist", "", "Track 2");
+            AddFile("Some artist", "", "Track 3");
         }
 
 
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMPsWithMissingArtistNames()
         {
-            AddFile("", "Some album");
-            AddFile("", "Some album");
-            AddFile("", "Some album");
+            AddFile("", "Some album", "Track 1");
+            AddFile("", "Some album", "Track 2");
+            AddFile("", "Some album", "Track 3");
         }
 
         [Given(@"the folder has MP3s with mixed album titles")]
         public void GivenTheFolderHasMPsWithMixedAlbumTitles()
         {
-            AddFile("Some artist", "Some album");
-            AddFile("Some artist", "Different album");
-            AddFile("Some artist", "Some album");
+            AddFile("Some artist", "Some album", "Track 1");
+            AddFile("Some artist", "Different album", "Track 2");
+            AddFile("Some artist", "Some album", "Track 3");
         }
 
         [Given(@"the folder has no MP3s")]
