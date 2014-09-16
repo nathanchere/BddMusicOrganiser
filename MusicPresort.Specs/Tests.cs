@@ -19,6 +19,15 @@ namespace MusicPresort.Specs
             _thingy = new Thingy();
         }
 
+        #region Helpers
+
+        private void AddFile(string artistName, string albumTitle)
+        {
+            _folder._files.Add(new MusicFile{ArtistName = artistName, AlbumTitle = albumTitle});
+        }
+
+        #endregion
+
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
@@ -28,23 +37,25 @@ namespace MusicPresort.Specs
         [Given(@"the folder has MP3s with mixed artist names")]
         public void GivenTheFolderHasMPsWithMixedArtistNames()
         {
-            _folder.Add(new MusicFile { ArtistName = "Some artist" });
-            _folder.Add(new MusicFile { ArtistName = "Some artist" });
-            _folder.Add(new MusicFile { ArtistName = "Another artist" });
+            AddFile("Some artist", "Some album");
+            AddFile("Some artist", "Some album");
+            AddFile("Another artist", "Some album");
         }
 
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMPsWithMissingArtistNames()
         {
-            _folder.Add(new MusicFile { ArtistName = "Some artist" });
-            _folder.Add(new MusicFile { ArtistName = "" });
-            _folder.Add(new MusicFile { ArtistName = "Another artist" });
+            AddFile("", "Some album");
+            AddFile("", "Some album");
+            AddFile("", "Some album");
         }
 
         [Given(@"the folder has MP3s with mixed album titles")]
         public void GivenTheFolderHasMPsWithMixedAlbumTitles()
         {
-            ScenarioContext.Current.Pending();
+            AddFile("Some artist", "Some album");
+            AddFile("Some artist", "Different album");
+            AddFile("Some artist", "Some album");
         }
 
         [Given(@"the folder has no MP3s")]
