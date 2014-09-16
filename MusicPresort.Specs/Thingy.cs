@@ -10,12 +10,14 @@ namespace MusicPresort.Specs
         public List<MusicFolder> BadFolders { get; private set; }
 
         private readonly Func<MusicFile, bool> IsArtistMissing;
+        private readonly Func<MusicFile, bool> IsAlbumMissing;
 
         public Thingy()
         {
             GoodFolders = new List<MusicFolder>();
             BadFolders = new List<MusicFolder>();
             IsArtistMissing = f => string.IsNullOrEmpty(f.ArtistName);
+            IsAlbumMissing = f => string.IsNullOrEmpty(f.AlbumTitle);
         }
 
         public void ProcessFolder(MusicFolder folder)
@@ -31,8 +33,12 @@ namespace MusicPresort.Specs
             if(!folder._files.Any()) return false;
 
             if (folder._files.Any(IsArtistMissing)) return false;
+            
+            if (folder._files.Any(IsAlbumMissing)) return false;
 
             if (folder._files.Any(x => x.ArtistName != folder._files[0].ArtistName)) return false;
+
+            if (folder._files.Any(x => x.AlbumTitle!= folder._files[0].AlbumTitle)) return false;
 
             return true;
         }

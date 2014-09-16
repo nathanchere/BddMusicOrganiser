@@ -9,7 +9,7 @@ Scenario: Mixed artist names
 	When I process the folder
 	Then the folder should be filtered out
 
-Scenario: Mixed album names
+Scenario: Mixed album titles
 	Given I have a music folder
 	And the folder has MP3s with mixed album titles
 	When I process the folder
@@ -18,6 +18,12 @@ Scenario: Mixed album names
 Scenario: Missing artist names
 	Given I have a music folder
 	And the folder has MP3s with missing artist names
+	When I process the folder
+	Then the folder should be filtered out
+
+Scenario: Missing album titles
+	Given I have a music folder
+	And the folder has MP3s with missing album titles
 	When I process the folder
 	Then the folder should be filtered out
 

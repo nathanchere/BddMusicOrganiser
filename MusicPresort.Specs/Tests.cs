@@ -42,6 +42,15 @@ namespace MusicPresort.Specs
             AddFile("Another artist", "Some album");
         }
 
+        [Given(@"the folder has MP3s with missing album titles")]
+        public void GivenTheFolderHasMPsWithMissingAlbumTitles()
+        {
+            AddFile("Some artist", "");
+            AddFile("Some artist", "");
+            AddFile("Some artist", "");
+        }
+
+
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMPsWithMissingArtistNames()
         {

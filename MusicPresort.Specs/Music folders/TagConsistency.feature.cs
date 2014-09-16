@@ -95,10 +95,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Verifying consistency of tags")]
-        [Xunit.TraitAttribute("Description", "Mixed album names")]
-        public virtual void MixedAlbumNames()
+        [Xunit.TraitAttribute("Description", "Mixed album titles")]
+        public virtual void MixedAlbumTitles()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mixed album names", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mixed album titles", ((string[])(null)));
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line 13
@@ -133,6 +133,26 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Verifying consistency of tags")]
+        [Xunit.TraitAttribute("Description", "Missing album titles")]
+        public virtual void MissingAlbumTitles()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing album titles", ((string[])(null)));
+#line 24
+this.ScenarioSetup(scenarioInfo);
+#line 25
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
+ testRunner.And("the folder has MP3s with missing album titles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("the folder should be filtered out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [Xunit.FactAttribute(Skip="Ignored")]
         [Xunit.TraitAttribute("FeatureTitle", "Verifying consistency of tags")]
         [Xunit.TraitAttribute("Description", "Missing track names")]
@@ -140,7 +160,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing track names", new string[] {
                         "ignore"});
-#line 25
+#line 31
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -153,7 +173,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Missing track numbers", new string[] {
                         "ignore"});
-#line 28
+#line 34
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -166,7 +186,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incomplete sequence of track numbers", new string[] {
                         "ignore"});
-#line 31
+#line 37
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -179,7 +199,7 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No tags", new string[] {
                         "ignore"});
-#line 34
+#line 40
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -191,15 +211,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void NoMP3S()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No MP3s", ((string[])(null)));
-#line 36
+#line 42
 this.ScenarioSetup(scenarioInfo);
-#line 37
+#line 43
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 38
+#line 44
  testRunner.And("the folder has no MP3s", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
+#line 45
  testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
+#line 46
  testRunner.Then("the folder should be filtered out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
