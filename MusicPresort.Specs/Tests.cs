@@ -21,7 +21,7 @@ namespace MusicPresort.Specs
 
         #region Helpers
 
-        private void AddFile(string artistName, string albumTitle)
+        private void AddFile(string artistName, string albumTitle, string trackTitle)
         {
             _folder._files.Add(new MusicFile{ArtistName = artistName, AlbumTitle = albumTitle});
         }
