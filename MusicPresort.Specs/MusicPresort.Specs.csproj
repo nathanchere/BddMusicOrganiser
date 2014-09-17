@@ -48,6 +48,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Music folders\File name dates.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>File name dates.feature</DependentUpon>
+    </Compile>
     <Compile Include="Music folders\TagConsistency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,6 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Music folders\File name dates.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>File name dates.feature.cs</LastGenOutput>
+    </None>
     <None Include="Music folders\TagConsistency.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TagConsistency.feature.cs</LastGenOutput>
