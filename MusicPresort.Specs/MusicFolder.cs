@@ -4,8 +4,6 @@ namespace MusicPresort.Specs
 {
     public class MusicFolder
     {
-        public List<MusicFile> _files;
-
         public MusicFolder()
         {
             _files = new List<MusicFile>();
@@ -15,5 +13,11 @@ namespace MusicPresort.Specs
         {
             _files.Add(musicFile);
         }
+
+        public List<MusicFile> _files;
+
+        // Path?
+        public string Name { get; set; }
+        
     }
 }
