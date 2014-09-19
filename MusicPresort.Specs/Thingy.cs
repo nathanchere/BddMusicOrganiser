@@ -6,6 +6,8 @@ namespace MusicPresort.Specs
 {
     public class Thingy
     {
+        public List<PreprocessResult> Results { get; private set; }
+
         public List<MusicFolder> GoodFolders { get; private set; }
         public List<MusicFolder> BadFolders { get; private set; }
 
@@ -19,6 +21,8 @@ namespace MusicPresort.Specs
         {
             GoodFolders = new List<MusicFolder>();
             BadFolders = new List<MusicFolder>();
+            Results = new List<PreprocessResult>();
+
             IsArtistMissing = f => string.IsNullOrEmpty(f.ArtistName);
             IsAlbumMissing = f => string.IsNullOrEmpty(f.AlbumTitle);
             IsTrackNumberMissing = f => !f.TrackNumber.HasValue;
@@ -62,5 +66,18 @@ namespace MusicPresort.Specs
 
             return true;
         }
+
+        public void PreprocessFolder(MusicFolder folder)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class PreprocessResult
+    {
+        public MusicFolder Folder { get; set; }
+
+        //TODO simpleDate class
+        public DateTime? Date { get; set; }
     }
 }

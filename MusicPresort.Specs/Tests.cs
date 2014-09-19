@@ -8,7 +8,7 @@ using Xunit;
 namespace MusicPresort.Specs
 {
     [Binding]
-    class MusicFolderTests
+    partial class MusicFolderTests
     {
         private readonly Thingy _thingy;
 

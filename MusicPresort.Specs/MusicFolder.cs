@@ -16,7 +16,7 @@ namespace MusicPresort.Specs
 
         public List<MusicFile> _files;
 
-        // Path?
+        // Path? Root folder name?
         public string Name { get; set; }
         
     }
