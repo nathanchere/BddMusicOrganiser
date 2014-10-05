@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace MusicPresort.Specs
@@ -6,16 +6,22 @@ namespace MusicPresort.Specs
     [Binding]
     public class EndToEndSteps
     {
+        private readonly Thingy _thingy;
+        private List<MusicFolder> _folders;
+
         [Given(@"I have a collection of folders")]
         public void GivenIHaveACollectionOfFolders()
         {
-            ScenarioContext.Current.Pending();
+            _folders = new List<MusicFolder>();
         }
 
         [Given(@"there are some valid folders within")]
         public void GivenThereAreSomeValidFoldersWithin()
         {
             ScenarioContext.Current.Pending();
+            //_folders.Add(new MusicFolder{
+            //    _files = 
+            //});
         }
 
         [When(@"I process the collection of folders")]

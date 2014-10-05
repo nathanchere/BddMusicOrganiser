@@ -5,9 +5,12 @@
 	And when it was added
 
 @mytag
-Scenario: Import a shitload of folders
+Scenario: Import valid folders
 	Given I have a collection of folders
+	And there are some valid folders within
 	When I process the collection of folders
-	Then the valid ones should
-	And the invalid ones should
+	Then the valid ones should have an import date
+	And the valid ones should have an artist name
+	And the valid ones should have an album title
+	And the valid ones should have an album year
 
