@@ -16,6 +16,7 @@ namespace MusicPresort.Specs
         private readonly Func<MusicFile, bool> IsTrackNumberMissing;
         private readonly Func<MusicFile, bool> IsTrackNumberInvalid;
         private readonly Func<MusicFolder, bool> IsTrackNumberSequenceIncomplete;
+        private readonly Func<MusicFile, bool> IsTrackNameMissing;
 
         public Thingy()
         {
@@ -26,7 +27,7 @@ namespace MusicPresort.Specs
             IsArtistMissing = f => string.IsNullOrEmpty(f.ArtistName);
             IsAlbumMissing = f => string.IsNullOrEmpty(f.AlbumTitle);
             IsTrackNumberMissing = f => !f.TrackNumber.HasValue;
-            IsTrackNumberInvalid = f => f.TrackNumber.Value <= 0;
+            IsTrackNumberInvalid = f => !f.TrackNumber.HasValue || f.TrackNumber.Value <= 0;
             IsTrackNumberSequenceIncomplete = f => {
                 int i = 1;
                 foreach (var file in f._files.OrderBy(x => x.TrackNumber))
@@ -36,6 +37,7 @@ namespace MusicPresort.Specs
                 }
                 return false;
             };
+            IsTrackNameMissing = f => string.IsNullOrWhiteSpace(f.TrackTitle);
         }
        
         public void ProcessFolder(MusicFolder folder)
@@ -55,6 +57,8 @@ namespace MusicPresort.Specs
             if (folder._files.Any(IsAlbumMissing)) return false;
 
             if (folder._files.Any(IsTrackNumberMissing)) return false;
+
+            if (folder._files.Any(IsTrackNameMissing)) return false;
 
             if (folder._files.Any(IsTrackNumberInvalid)) return false;
 

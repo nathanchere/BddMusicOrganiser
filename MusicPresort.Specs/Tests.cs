@@ -19,6 +19,7 @@ namespace MusicPresort.Specs
 
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
+        
             _folder._files.Add(
                 new MusicFile{
                     ArtistName = artistName,
@@ -104,7 +105,7 @@ namespace MusicPresort.Specs
         }
 
         [Given(@"the folder has no MP3s")]
-        public void GivenTheFolderHasNoMPs()
+        public void GivenTheFolderHasNoMP3s()
         {
             // Nothing to do! :)
         }
