@@ -11,6 +11,13 @@
 
 Scenario: Valid date
 	Given I have a music folder
-	And the folder name is "2010-12-31 (2014) SomeArtist SomeAlbum 320Kbps MP3 [soundcloud]"
+	And the folder name is in a valid format
 	When I pre-process the folder
-	Then the result should have the date 31-12-2010
+	Then the result should have the date
+
+Scenario: Invalid date
+	Given I have a music folder
+	And the folder name is not in a valid format
+	When I pre-process the folder
+	Then the result should have no date
+	// and the result should have an error "Invalid date"

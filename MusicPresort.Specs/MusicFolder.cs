@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MusicPresort.Specs
 {
@@ -17,7 +18,7 @@ namespace MusicPresort.Specs
         public List<MusicFile> _files;
 
         // Path? Root folder name?
-        public string Name { get; set; }
-        
+        public string FileName { get; set; }
+        public DateTime Date { get; set; }
     }
 }
