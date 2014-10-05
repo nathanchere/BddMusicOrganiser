@@ -43,7 +43,13 @@ namespace MusicPresort.Specs
         [Given(@"the folder name is not in a valid format")]
         public void GivenTheFolderNameIsNotInAValidFormat()
         {
-            _folder.FileName = "2010-0-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _folder.FileName = "1977 Fleetwood.Mac.Rumours [vinyl rip]";
+        }
+
+        [Given(@"the folder name is in a valid format but with an invalid date")]
+        public void GivenTheFolderNameIsInAValidFormatButWithAnInvalidDate()
+        {
+            _folder.FileName = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
         }
 
 
@@ -147,11 +153,10 @@ namespace MusicPresort.Specs
             Assert.Contains(_folder, _thingy.BadFolders);
         }
 
-
         [Then(@"the result should have the date")]
         public void ThenTheResultShouldHaveTheDate()
         {
-            Assert.True(_folder.Date.HasValue);
+            Assert.True(_folder.Date != null);
         }
 
         [Then(@"the result should have no date")]

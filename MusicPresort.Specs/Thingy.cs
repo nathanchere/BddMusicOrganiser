@@ -76,9 +76,7 @@ namespace MusicPresort.Specs
             try
             {
                 if (string.IsNullOrEmpty(folder.FileName)) return;
-                folder.Date = DateTime.Parse(
-                    folder.FileName.Split(' ')[0],                   
-                    );
+                folder.Date = new Date(folder.FileName.Split(' ')[0]);
             }
             catch (Exception ex)
             {
@@ -107,6 +105,34 @@ namespace MusicPresort.Specs
                 && target.Year == this.Year
                 && target.Month == this.Month
                 && target.Day == this.Day;
+        }
+
+        public Date() { }
+
+        public Date(string input)
+        {
+            if (input == null) throw new ArgumentNullException("Cannot create a Date from a null string");
+            var inputs = input.Split('-');
+            if(inputs.Length != 3)
+                throw new ArgumentException("Input is not in a valid format");
+            Year = int.Parse(inputs[0]);
+            Month = int.Parse(inputs[1]);
+            Day = int.Parse(inputs[2]);
+            // TODO: regex validate format yyyy-mm-dd
+            
+        }
+
+        public Date(DateTime input)
+        { 
+            Year = input.Year;
+            Month = input.Month;
+            Day = input.Day;
+        }
+
+        public bool IsValid()
+        {
+            // TODO: validate date
+            throw new NotImplementedException();
         }
 
         // TODO:

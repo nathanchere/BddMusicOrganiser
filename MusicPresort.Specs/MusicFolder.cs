@@ -19,6 +19,6 @@ namespace MusicPresort.Specs
 
         // Path? Root folder name?
         public string FileName { get; set; }
-        public DateTime? Date { get; set; }
+        public Date Date { get; set; }
     }
 }
