@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using System;
+using TechTalk.SpecFlow;
 using Xunit;
 
 namespace MusicPresort.Specs
@@ -36,13 +37,13 @@ namespace MusicPresort.Specs
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
-            _folder.Name = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _folder.FileName = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
         }
 
         [Given(@"the folder name is not in a valid format")]
         public void GivenTheFolderNameIsNotInAValidFormat()
         {
-            _folder.Name = "2010-0-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _folder.FileName = "2010-0-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
         }
 
 
@@ -135,7 +136,7 @@ namespace MusicPresort.Specs
         [When(@"I pre-process the folder")]
         public void WhenIPre_ProcessTheFolder()
         {
-            ScenarioContext.Current.Pending();
+            _thingy.PreprocessFolder(_folder);
         }
         #endregion
 
@@ -150,13 +151,13 @@ namespace MusicPresort.Specs
         [Then(@"the result should have the date")]
         public void ThenTheResultShouldHaveTheDate()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(_folder.Date.HasValue);
         }
 
         [Then(@"the result should have no date")]
         public void ThenTheResultShouldHaveNoDate()
         {
-            Assert.True(_folder.Date = null);
+            Assert.True(_folder.Date == null);
         }
 
         #endregion

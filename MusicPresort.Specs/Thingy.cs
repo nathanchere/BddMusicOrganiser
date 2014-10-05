@@ -72,8 +72,17 @@ namespace MusicPresort.Specs
         }
 
         public void PreprocessFolder(MusicFolder folder)
-        {
-            throw new NotImplementedException();
+        {            
+            try
+            {
+                if (string.IsNullOrEmpty(folder.FileName)) return;
+                folder.Date = DateTime.Parse(
+                    folder.FileName.Split(' ')[0],                   
+                    );
+            }
+            catch (Exception ex)
+            {
+            }            
         }
     }
 
@@ -82,6 +91,29 @@ namespace MusicPresort.Specs
         public MusicFolder Folder { get; set; }
 
         //TODO simpleDate class
-        public DateTime? Date { get; set; }
+        public Date Date { get; set; }
+    }
+
+    public class Date
+    {
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var target = obj as Date;
+            return target != null
+                && target.Year == this.Year
+                && target.Month == this.Month
+                && target.Day == this.Day;
+        }
+
+        // TODO:
+            /*Equals for DateTime
+             * ctor for datetime
+             * ctor for string
+             * comparion operators
+             */
     }
 }

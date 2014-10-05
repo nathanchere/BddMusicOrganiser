@@ -20,4 +20,4 @@ Scenario: Invalid date
 	And the folder name is not in a valid format
 	When I pre-process the folder
 	Then the result should have no date
-	// and the result should have an error "Invalid date"
+	# and the result should have an error "Invalid date"
