@@ -15,16 +15,18 @@ Scenario: Valid date
 	When I pre-process the folder
 	Then the result should have the date
 
+@ignore
 Scenario: Invalid date
 	Given I have a music folder
 	And the folder name is in a valid format but with an invalid date
 	When I pre-process the folder
 	Then the result should have no date
 	# and the result should have an error "Invalid date"
+	# Date validation to come later
 
 Scenario: Invalid format
 	Given I have a music folder
 	And the folder name is not in a valid format
 	When I pre-process the folder
 	Then the result should have no date
-	# and the result should have an error "Invalid date"
+	# and the result should have an error "Invalid format"
