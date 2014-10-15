@@ -34,6 +34,12 @@ namespace MusicPresort.Specs
         #endregion
 
         #region Given
+        [Given(@"the folder has no analysis cache")]
+        public void GivenTheFolderHasNoAnalysisCache()
+        {
+            _folder.Analysis = null;
+        }
+
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
