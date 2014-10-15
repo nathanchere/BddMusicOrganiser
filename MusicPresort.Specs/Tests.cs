@@ -171,6 +171,12 @@ namespace MusicPresort.Specs
             Assert.True(_folder.Date == null);
         }
 
+        [Then(@"the folder should be processed")]
+        public void ThenTheFolderShouldBeProcessed()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         #endregion
     }
 }
