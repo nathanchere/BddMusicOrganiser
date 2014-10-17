@@ -18,7 +18,7 @@ namespace MusicPresort.Specs.MusicFolders
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AnalysisCacheFeature : Xunit.IUseFixture<AnalysisCacheFeature.FixtureData>, System.IDisposable
+    public partial class FolderAnalysisFeature : Xunit.IUseFixture<FolderAnalysisFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -26,7 +26,7 @@ namespace MusicPresort.Specs.MusicFolders
 #line 1 "FolderAnalysis.feature"
 #line hidden
         
-        public AnalysisCacheFeature()
+        public FolderAnalysisFeature()
         {
             this.TestInitialize();
         }
@@ -34,7 +34,7 @@ namespace MusicPresort.Specs.MusicFolders
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Analysis cache", "In order to provide an audit trail if anything goes wrong\nAnd improve performance" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Folder analysis", "In order to provide an audit trail if anything goes wrong\nAnd improve performance" +
                     " when running the import multiple times\nAs a thingy\nI want to persist a cache of" +
                     " import results", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
@@ -65,7 +65,7 @@ namespace MusicPresort.Specs.MusicFolders
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(AnalysisCacheFeature.FixtureData fixtureData)
+        public virtual void SetFixture(FolderAnalysisFeature.FixtureData fixtureData)
         {
         }
         
@@ -75,7 +75,7 @@ namespace MusicPresort.Specs.MusicFolders
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Analysis cache")]
+        [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
         [Xunit.TraitAttribute("Description", "Folder not previously analysed")]
         public virtual void FolderNotPreviouslyAnalysed()
         {
@@ -95,7 +95,7 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Analysis cache")]
+        [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
         [Xunit.TraitAttribute("Description", "Folder previously analysed")]
         public virtual void FolderPreviouslyAnalysed()
         {
@@ -121,12 +121,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                AnalysisCacheFeature.FeatureSetup();
+                FolderAnalysisFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                AnalysisCacheFeature.FeatureTearDown();
+                FolderAnalysisFeature.FeatureTearDown();
             }
         }
     }

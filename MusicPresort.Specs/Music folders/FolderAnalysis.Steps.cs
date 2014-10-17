@@ -4,14 +4,14 @@ using Xunit;
 
 namespace MusicPresort.Specs
 {
-    [Binding]
-    partial class MusicFolderTests
+    [Binding, Scope(Feature = "Folder analysis")]
+    class FolderAnalysisSteps
     {
         private readonly Thingy _thingy;
 
         private MusicFolder _folder;
 
-        public MusicFolderTests()
+        public FolderAnalysisSteps()
         {
             _thingy = new Thingy();
         }
@@ -174,8 +174,8 @@ namespace MusicPresort.Specs
         [Then(@"the folder should be processed")]
         public void ThenTheFolderShouldBeProcessed()
         {
-            Assert.
-            _thingy.PreprocessFolder();
+            //Assert.
+            //_thingy.PreprocessFolder();
         }
 
         #endregion

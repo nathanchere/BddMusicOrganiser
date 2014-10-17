@@ -1,4 +1,4 @@
-﻿Feature: Analysis cache
+﻿Feature: Folder analysis
 	In order to provide an audit trail if anything goes wrong
 	And improve performance when running the import multiple times
 	As a thingy

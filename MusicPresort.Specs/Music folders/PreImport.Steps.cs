@@ -4,20 +4,19 @@ using Xunit;
 
 namespace MusicPresort.Specs
 {
-    [Binding]
-    partial class MusicFolderTests
+    [Binding, Scope(Feature = "Preimport")]
+    class PreimportSteps
     {
         private readonly Thingy _thingy;
 
         private MusicFolder _folder;
 
-        public MusicFolderTests()
+        public PreimportSteps()
         {
             _thingy = new Thingy();
         }
 
         #region Helpers
-
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
         
@@ -30,16 +29,9 @@ namespace MusicPresort.Specs
                 }
             );
         }
-
         #endregion
 
         #region Given
-        [Given(@"the folder has no analysis cache")]
-        public void GivenTheFolderHasNoAnalysisCache()
-        {
-            _folder.Analysis = null;
-        }
-
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
@@ -138,13 +130,7 @@ namespace MusicPresort.Specs
         }
         #endregion
 
-        #region When
-        [When(@"I process the folder")]
-        public void WhenIProcessTheFolder()
-        {
-            _thingy.ProcessFolder(_folder);
-        }
-
+        #region When        
         [When(@"I pre-process the folder")]
         public void WhenIPre_ProcessTheFolder()
         {
@@ -152,13 +138,7 @@ namespace MusicPresort.Specs
         }
         #endregion
 
-        #region Then
-        [Then(@"the folder should be filtered out")]
-        public void ThenTheFolderShouldBeFilteredOut()
-        {
-            Assert.Contains(_folder, _thingy.BadFolders);
-        }
-
+        #region Then       
         [Then(@"the result should have the date")]
         public void ThenTheResultShouldHaveTheDate()
         {
@@ -169,15 +149,7 @@ namespace MusicPresort.Specs
         public void ThenTheResultShouldHaveNoDate()
         {
             Assert.True(_folder.Date == null);
-        }
-
-        [Then(@"the folder should be processed")]
-        public void ThenTheFolderShouldBeProcessed()
-        {
-            Assert.
-            _thingy.PreprocessFolder();
-        }
-
+        }        
         #endregion
     }
 }

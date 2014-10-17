@@ -1,4 +1,4 @@
-﻿Feature: Verifying consistency of tags
+﻿Feature: Tag consistency
 	In order to determine if a music folder is ready to be catalogued
 	As a pre-sort filter
 	I want to filter out any invalid folders

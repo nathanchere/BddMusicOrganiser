@@ -1,4 +1,4 @@
-﻿Feature: Catalogue pre-import
+﻿Feature: Preimport
 	In order to know when an album was added to the catalog
 	As a thingy
 	I want to determine the import date from a music folder

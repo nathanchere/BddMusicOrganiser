@@ -18,7 +18,7 @@ namespace MusicPresort.Specs.MusicFolders
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class CataloguePre_ImportFeature : Xunit.IUseFixture<CataloguePre_ImportFeature.FixtureData>, System.IDisposable
+    public partial class PreimportFeature : Xunit.IUseFixture<PreimportFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -26,7 +26,7 @@ namespace MusicPresort.Specs.MusicFolders
 #line 1 "PreImport.feature"
 #line hidden
         
-        public CataloguePre_ImportFeature()
+        public PreimportFeature()
         {
             this.TestInitialize();
         }
@@ -34,7 +34,7 @@ namespace MusicPresort.Specs.MusicFolders
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Catalogue pre-import", "In order to know when an album was added to the catalog\nAs a thingy\nI want to det" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Preimport", "In order to know when an album was added to the catalog\nAs a thingy\nI want to det" +
                     "ermine the import date from a music folder", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -64,7 +64,7 @@ namespace MusicPresort.Specs.MusicFolders
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(CataloguePre_ImportFeature.FixtureData fixtureData)
+        public virtual void SetFixture(PreimportFeature.FixtureData fixtureData)
         {
         }
         
@@ -74,7 +74,7 @@ namespace MusicPresort.Specs.MusicFolders
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Catalogue pre-import")]
+        [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
         [Xunit.TraitAttribute("Description", "Valid date")]
         public virtual void ValidDate()
         {
@@ -94,7 +94,7 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Xunit.FactAttribute(Skip="Ignored")]
-        [Xunit.TraitAttribute("FeatureTitle", "Catalogue pre-import")]
+        [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
         [Xunit.TraitAttribute("Description", "Invalid date")]
         public virtual void InvalidDate()
         {
@@ -115,7 +115,7 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Catalogue pre-import")]
+        [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
         [Xunit.TraitAttribute("Description", "Invalid format")]
         public virtual void InvalidFormat()
         {
@@ -141,12 +141,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                CataloguePre_ImportFeature.FeatureSetup();
+                PreimportFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                CataloguePre_ImportFeature.FeatureTearDown();
+                PreimportFeature.FeatureTearDown();
             }
         }
     }
