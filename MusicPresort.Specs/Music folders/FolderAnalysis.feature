@@ -18,6 +18,6 @@ Scenario: Folder not previously analysed
 
 Scenario: Folder previously analysed
 	Given I have a music folder
-	And the folder has no analysis cache
+	And the folder has an analysis cache
 	When I process the folder
 	Then processing should be skipped

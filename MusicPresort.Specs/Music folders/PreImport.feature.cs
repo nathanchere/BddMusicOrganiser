@@ -93,22 +93,21 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(Skip="Ignored")]
+        [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
         [Xunit.TraitAttribute("Description", "Invalid date")]
         public virtual void InvalidDate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid date", new string[] {
-                        "ignore"});
-#line 19
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid date", ((string[])(null)));
+#line 18
 this.ScenarioSetup(scenarioInfo);
-#line 20
+#line 19
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
+#line 20
  testRunner.And("the folder name is in a valid format but with an invalid date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
+#line 21
  testRunner.When("I pre-process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
+#line 22
  testRunner.Then("the result should have no date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -120,15 +119,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void InvalidFormat()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid format", ((string[])(null)));
-#line 27
+#line 26
 this.ScenarioSetup(scenarioInfo);
-#line 28
+#line 27
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 29
+#line 28
  testRunner.And("the folder name is not in a valid format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
+#line 29
  testRunner.When("I pre-process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 31
+#line 30
  testRunner.Then("the result should have no date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

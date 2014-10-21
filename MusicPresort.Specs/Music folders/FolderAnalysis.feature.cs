@@ -105,7 +105,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
- testRunner.And("the folder has no analysis cache", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder has an analysis cache", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
  testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23

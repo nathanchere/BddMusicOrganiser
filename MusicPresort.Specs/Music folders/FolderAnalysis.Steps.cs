@@ -1,4 +1,5 @@
 ﻿using System;
+using Ploeh.AutoFixture;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -7,14 +8,16 @@ namespace MusicPresort.Specs
     [Binding, Scope(Feature = "Folder analysis")]
     class FolderAnalysisSteps
     {
-        private readonly Thingy _thingy;
-
-        private MusicFolder _folder;
-
         public FolderAnalysisSteps()
         {
-            _thingy = new Thingy();
+            _fixture = new Fixture();
+            _thingy = _fixture.Build<Thingy>().Create();
         }
+
+        private Fixture _fixture;
+
+        private readonly Thingy _thingy;
+        private MusicFolder _folder;
 
         #region Helpers
 
@@ -40,101 +43,16 @@ namespace MusicPresort.Specs
             _folder.Analysis = null;
         }
 
-        [Given(@"the folder name is in a valid format")]
-        public void GivenTheFolderNameIsInAValidFormat()
+        [Given(@"the folder has an analysis cache")]
+        public void GivenTheFolderHasAnAnalysisCache()
         {
-            _folder.FileName = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            // let autofixture just do its thing
         }
-
-        [Given(@"the folder name is not in a valid format")]
-        public void GivenTheFolderNameIsNotInAValidFormat()
-        {
-            _folder.FileName = "1977 Fleetwood.Mac.Rumours [vinyl rip]";
-        }
-
-        [Given(@"the folder name is in a valid format but with an invalid date")]
-        public void GivenTheFolderNameIsInAValidFormatButWithAnInvalidDate()
-        {
-            _folder.FileName = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
-        }
-
 
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
             _folder = new MusicFolder();
-        }
-
-        [Given(@"the folder has MP3s with mixed artist names")]
-        public void GivenTheFolderHasMP3sWithMixedArtistNames()
-        {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Some album", "Track 2", 2);
-            AddFile("Another artist", "Some album", "Track 3", 3);
-        }
-
-        [Given(@"the folder has MP3s with missing track titles")]
-        public void GivenTheFolderHasMP3sWithMissingTrackTitles()
-        {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Some album", "", 2);
-            AddFile("Some artist", "Some album", "Track 3", 3);
-        }
-
-        [Given(@"the folder has MP3s with an incomplete sequence of track numbers")]
-        public void GivenTheFolderHasMP3sWithAnIncompleteSequenceOfTrackNumbers()
-        {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Some album", "Track 2", 2);
-            AddFile("Some artist", "Some album", "Track 4", 4);
-        }
-
-
-        [Given(@"the folder has MP3s with missing track numbers")]
-        public void GivenTheFolderHasMP3sWithMissingTrackNumbers()
-        {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Some album", "Track 2", null);
-            AddFile("Some artist", "Some album", "Track 3", 3);
-        }
-
-        [Given(@"the folder has MP3s with invalid track numbers")]
-        public void GivenTheFolderHasMP3sWitInvalidTrackNumbers()
-        {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Some album", "Track 2", 0);
-            AddFile("Some artist", "Some album", "Track 3", 3);
-        }
-
-        [Given(@"the folder has MP3s with missing album titles")]
-        public void GivenTheFolderHasMP3sWithMissingAlbumTitles()
-        {
-            AddFile("Some artist", "", "Track 1", 1);
-            AddFile("Some artist", "", "Track 2", 2);
-            AddFile("Some artist", "", "Track 3", 3);
-        }
-
-
-        [Given(@"the folder has MP3s with missing artist names")]
-        public void GivenTheFolderHasMP3sWithMissingArtistNames()
-        {
-            AddFile("", "Some album", "Track 1", 1);
-            AddFile("", "Some album", "Track 2", 2);
-            AddFile("", "Some album", "Track 3", 3);
-        }
-
-        [Given(@"the folder has MP3s with mixed album titles")]
-        public void GivenTheFolderHasMP3sWithMixedAlbumTitles()
-        {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Different album", "Track 2", 2);
-            AddFile("Some artist", "Some album", "Track 3", 3);
-        }
-
-        [Given(@"the folder has no MP3s")]
-        public void GivenTheFolderHasNoMP3s()
-        {
-            // Nothing to do! :)
         }
         #endregion
 

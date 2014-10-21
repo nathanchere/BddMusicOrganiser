@@ -115,11 +115,12 @@ namespace MusicPresort.Specs
             var inputs = input.Split('-');
             if(inputs.Length != 3)
                 throw new ArgumentException("Input is not in a valid format");
+            
+            DateTime.Parse(input);
+            
             Year = int.Parse(inputs[0]);
             Month = int.Parse(inputs[1]);
             Day = int.Parse(inputs[2]);
-            // TODO: regex validate format yyyy-mm-dd
-            
         }
 
         public Date(DateTime input)

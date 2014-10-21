@@ -15,7 +15,6 @@ Scenario: Valid date
 	When I pre-process the folder
 	Then the result should have the date
 
-@ignore
 Scenario: Invalid date
 	Given I have a music folder
 	And the folder name is in a valid format but with an invalid date
