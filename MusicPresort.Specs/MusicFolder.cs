@@ -20,11 +20,11 @@ namespace MusicPresort.Specs
         // Path? Root folder name?
         public string FileName { get; set; }
         public Date Date { get; set; }
-        public Sandwich Analysis { get; set; }
+        public AnalysisCache Analysis { get; set; }
     }
 
     // Analysis cache
-    public class Sandwich
+    public class AnalysisCache
     {
     }
 }

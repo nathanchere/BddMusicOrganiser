@@ -42,6 +42,8 @@ namespace MusicPresort.Specs
        
         public void ProcessFolder(MusicFolder folder)
         {
+            if (folder.Analysis == null) return;
+
             if(!IsValid(folder))
                 BadFolders.Add(folder);
             else
@@ -80,6 +82,7 @@ namespace MusicPresort.Specs
             }
             catch (Exception ex)
             {
+                // TODO: WTF was I doing here
             }            
         }
     }

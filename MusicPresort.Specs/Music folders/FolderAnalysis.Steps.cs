@@ -46,7 +46,7 @@ namespace MusicPresort.Specs
         [Given(@"the folder has an analysis cache")]
         public void GivenTheFolderHasAnAnalysisCache()
         {
-            _folder.Analysis = _fixture.Build<Sandwich>().Create();
+            _folder.Analysis = _fixture.Build<AnalysisCache>().Create();
         }
 
         [Given(@"I have a music folder")]
@@ -68,14 +68,15 @@ namespace MusicPresort.Specs
         [Then(@"the folder should be processed")]
         public void ThenTheFolderShouldBeProcessed()
         {
-            //Assert.
+            Assert.NotNull(_folder.Analysis);
             //_thingy.PreprocessFolder();
         }
 
         [Then(@"processing should be skipped")]
         public void ThenProcessingShouldBeSkipped()
         {
-            ScenarioContext.Current.Pending();
+            // TODO: this isn't really ensuring it hasn't been processed and given a new cache
+            Assert.NotNull(_folder.Analysis);
         }
 
         #endregion
