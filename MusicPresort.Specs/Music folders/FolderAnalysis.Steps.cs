@@ -46,13 +46,13 @@ namespace MusicPresort.Specs
         [Given(@"the folder has an analysis cache")]
         public void GivenTheFolderHasAnAnalysisCache()
         {
-            // let autofixture just do its thing
+            _folder.Analysis = _fixture.Build<Sandwich>().Create();
         }
 
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
-            _folder = new MusicFolder();
+            _folder = _fixture.Build<MusicFolder>().Create();
         }
         #endregion
 
@@ -62,38 +62,20 @@ namespace MusicPresort.Specs
         {
             _thingy.ProcessFolder(_folder);
         }
-
-        [When(@"I pre-process the folder")]
-        public void WhenIPre_ProcessTheFolder()
-        {
-            _thingy.PreprocessFolder(_folder);
-        }
         #endregion
 
-        #region Then
-        [Then(@"the folder should be filtered out")]
-        public void ThenTheFolderShouldBeFilteredOut()
-        {
-            Assert.Contains(_folder, _thingy.BadFolders);
-        }
-
-        [Then(@"the result should have the date")]
-        public void ThenTheResultShouldHaveTheDate()
-        {
-            Assert.True(_folder.Date != null);
-        }
-
-        [Then(@"the result should have no date")]
-        public void ThenTheResultShouldHaveNoDate()
-        {
-            Assert.True(_folder.Date == null);
-        }
-
+        #region Then       
         [Then(@"the folder should be processed")]
         public void ThenTheFolderShouldBeProcessed()
         {
             //Assert.
             //_thingy.PreprocessFolder();
+        }
+
+        [Then(@"processing should be skipped")]
+        public void ThenProcessingShouldBeSkipped()
+        {
+            ScenarioContext.Current.Pending();
         }
 
         #endregion
