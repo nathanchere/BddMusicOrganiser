@@ -1,5 +1,7 @@
 ﻿using System;
+using Moq;
 using Ploeh.AutoFixture;
+using Ploeh.AutoFixture.Kernel;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -10,12 +12,18 @@ namespace MusicPresort.Specs
     {
         public FolderAnalysisSteps()
         {
-            _fixture = new Fixture();
-            _orchestratorThingy = _fixture.Build<OrchestratorThingy>().Create();
+            mockProcessor = new Mock<IFolderProcessor>();
+
+            _fixture = new Fixture();            
+            _fixture.Customize<OrchestratorThingy>(c=>c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
+            _fixture.Register<IFolderProcessor>(()=>mockProcessor.Object);            
+            
+            _orchestratorThingy = _fixture.Create<OrchestratorThingy>();
+            
         }
 
         private Fixture _fixture;
-
+        private Mock<IFolderProcessor> mockProcessor;
         private readonly OrchestratorThingy _orchestratorThingy;
         private MusicFolder _folder;
 
