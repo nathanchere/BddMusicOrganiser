@@ -1,19 +1,18 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using Xunit;
 
-namespace MusicPresort.Specs
+namespace MusicPresort.Specs.FolderProcessor
 {
     [Binding, Scope(Feature = "Tag consistency")]
     class TagConsistencySteps
     {
-        private readonly Thingy _thingy;
+        private readonly OrchestratorThingy _orchestratorThingy;
 
         private MusicFolder _folder;
 
         public TagConsistencySteps()
         {
-            _thingy = new Thingy();
+            _orchestratorThingy = new OrchestratorThingy();
         }
 
         #region Helpers
@@ -142,13 +141,13 @@ namespace MusicPresort.Specs
         [When(@"I process the folder")]
         public void WhenIProcessTheFolder()
         {
-            _thingy.ProcessFolder(_folder);
+            _orchestratorThingy.ProcessFolder(_folder);
         }
 
         [When(@"I pre-process the folder")]
         public void WhenIPre_ProcessTheFolder()
         {
-            _thingy.PreprocessFolder(_folder);
+            _orchestratorThingy.PreprocessFolder(_folder);
         }
         #endregion
 
@@ -156,7 +155,7 @@ namespace MusicPresort.Specs
         [Then(@"the folder should be filtered out")]
         public void ThenTheFolderShouldBeFilteredOut()
         {
-            Assert.Contains(_folder, _thingy.BadFolders);
+            Assert.Contains(_folder, _orchestratorThingy.BadFolders);
         }
 
         [Then(@"the result should have the date")]

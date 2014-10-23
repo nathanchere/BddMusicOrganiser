@@ -7,13 +7,13 @@ namespace MusicPresort.Specs
     [Binding, Scope(Feature = "Preimport")]
     class PreimportSteps
     {
-        private readonly Thingy _thingy;
+        private readonly OrchestratorThingy _orchestratorThingy;
 
         private MusicFolder _folder;
 
         public PreimportSteps()
         {
-            _thingy = new Thingy();
+            _orchestratorThingy = new OrchestratorThingy();
         }
 
         #region Helpers
@@ -134,7 +134,7 @@ namespace MusicPresort.Specs
         [When(@"I pre-process the folder")]
         public void WhenIPre_ProcessTheFolder()
         {
-            _thingy.PreprocessFolder(_folder);
+            _orchestratorThingy.PreprocessFolder(_folder);
         }
         #endregion
 

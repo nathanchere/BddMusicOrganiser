@@ -11,12 +11,12 @@ namespace MusicPresort.Specs
         public FolderAnalysisSteps()
         {
             _fixture = new Fixture();
-            _thingy = _fixture.Build<Thingy>().Create();
+            _orchestratorThingy = _fixture.Build<OrchestratorThingy>().Create();
         }
 
         private Fixture _fixture;
 
-        private readonly Thingy _thingy;
+        private readonly OrchestratorThingy _orchestratorThingy;
         private MusicFolder _folder;
 
         #region Helpers
@@ -60,7 +60,7 @@ namespace MusicPresort.Specs
         [When(@"I process the folder")]
         public void WhenIProcessTheFolder()
         {
-            _thingy.ProcessFolder(_folder);
+            _orchestratorThingy.ProcessFolder(_folder);
         }
         #endregion
 
@@ -69,7 +69,6 @@ namespace MusicPresort.Specs
         public void ThenTheFolderShouldBeProcessed()
         {
             Assert.NotNull(_folder.Analysis);
-            //_thingy.PreprocessFolder();
         }
 
         [Then(@"processing should be skipped")]

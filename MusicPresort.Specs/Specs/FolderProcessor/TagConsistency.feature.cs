@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MusicPresort.Specs.MusicFolders
+namespace MusicPresort.Specs.FolderProcessor
 {
     using TechTalk.SpecFlow;
     

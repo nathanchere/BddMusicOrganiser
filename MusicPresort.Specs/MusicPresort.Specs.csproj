@@ -7,7 +7,7 @@
     <ProjectGuid>{0CDF87B3-3DE7-4711-B562-E6AA583367F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MusicPresort.Specs</RootNamespace>
+    <RootNamespace>MusicPresort</RootNamespace>
     <AssemblyName>MusicPresort.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -57,44 +57,51 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Music folders\TagConsistency.feature.cs">
+    <Compile Include="IFolderProcessor.cs" />
+    <Compile Include="Specs\FolderProcessor\TagConsistency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TagConsistency.feature</DependentUpon>
     </Compile>
-    <Compile Include="Music folders\TagConsistency.Steps.cs" />
-    <Compile Include="Music folders\PreImport.Steps.cs" />
-    <Compile Include="Music folders\PreImport.feature.cs">
+    <Compile Include="Specs\FolderProcessor\TagConsistency.Steps.cs" />
+    <Compile Include="Specs\Music folders\PreImport.Steps.cs" />
+    <Compile Include="Specs\Music folders\PreImport.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PreImport.feature</DependentUpon>
     </Compile>
-    <Compile Include="Music folders\FolderAnalysis.feature.cs">
+    <Compile Include="Specs\Music folders\FolderAnalysis.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FolderAnalysis.feature</DependentUpon>
     </Compile>
-    <Compile Include="Music folders\FolderAnalysis.Steps.cs" />
+    <Compile Include="Specs\Music folders\FolderAnalysis.Steps.cs" />
     <Compile Include="MusicFile.cs" />
     <Compile Include="MusicFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Thingy.cs" />
+    <Compile Include="OrchestratorThingy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Music folders\PreImport.feature">
+    <None Include="Specs\Music folders\PreImport.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PreImport.feature.cs</LastGenOutput>
     </None>
-    <None Include="Music folders\FolderAnalysis.feature">
+    <None Include="Specs\Music folders\FolderAnalysis.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FolderAnalysis.feature.cs</LastGenOutput>
     </None>
-    <None Include="Music folders\TagConsistency.feature">
+    <None Include="Specs\FolderProcessor\TagConsistency.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TagConsistency.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusicPresort\MusicPresort.csproj">
+      <Project>{615F27A7-E1F1-430D-ABA3-5F380F80F2D7}</Project>
+      <Name>MusicPresort</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
