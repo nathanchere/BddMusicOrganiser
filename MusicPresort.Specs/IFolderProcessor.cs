@@ -7,17 +7,11 @@ namespace MusicPresort
     public interface IFolderProcessor
     {
         bool IsValid(MusicFolder folder);
+        void Process(MusicFolder folder);
     }
 
     public class FolderProcessor : IFolderProcessor
     {
-        private readonly Func<MusicFile, bool> IsArtistMissing;
-        private readonly Func<MusicFile, bool> IsAlbumMissing;
-        private readonly Func<MusicFile, bool> IsTrackNumberMissing;
-        private readonly Func<MusicFile, bool> IsTrackNumberInvalid;
-        private readonly Func<MusicFolder, bool> IsTrackNumberSequenceIncomplete;
-        private readonly Func<MusicFile, bool> IsTrackNameMissing;
-
         public FolderProcessor()
         {
             IsArtistMissing = f => string.IsNullOrEmpty(f.ArtistName);
@@ -58,6 +52,11 @@ namespace MusicPresort
             if (folder._files.Any(x => x.AlbumTitle != folder._files[0].AlbumTitle)) return false;
 
             return true;
+        }
+
+        public void Process(MusicFolder folder)
+        {
+            // TODO: ?
         }
     }
 }

@@ -76,14 +76,13 @@ namespace MusicPresort.Specs
         [Then(@"the folder should be processed")]
         public void ThenTheFolderShouldBeProcessed()
         {
-            Assert.NotNull(_folder.Analysis);
+            mockProcessor.Verify(mock => mock.Process(It.IsAny<MusicFolder>()), Times.Once());
         }
 
         [Then(@"processing should be skipped")]
         public void ThenProcessingShouldBeSkipped()
         {
-            // TODO: this isn't really ensuring it hasn't been processed and given a new cache
-            Assert.NotNull(_folder.Analysis);
+            mockProcessor.Verify(mock=>mock.Process(It.IsAny<MusicFolder>()), Times.Never());
         }
 
         #endregion
