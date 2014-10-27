@@ -108,4 +108,9 @@ namespace MusicPresort.Specs
 
         #endregion
     }
+
+    public class DataFile
+    {
+        public string FullPath { get; set; }
+    }
 }
