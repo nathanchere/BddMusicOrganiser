@@ -79,15 +79,15 @@ namespace MusicPresort.Specs.MusicFolders
         public virtual void ValidDate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valid date", ((string[])(null)));
-#line 12
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 13
+#line 7
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
+#line 8
  testRunner.And("the folder name is in a valid format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 9
  testRunner.When("I pre-process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
+#line 10
  testRunner.Then("the result should have the date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -99,15 +99,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void InvalidDate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid date", ((string[])(null)));
-#line 18
+#line 12
 this.ScenarioSetup(scenarioInfo);
-#line 19
+#line 13
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
+#line 14
  testRunner.And("the folder name is in a valid format but with an invalid date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
+#line 15
  testRunner.When("I pre-process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 16
  testRunner.Then("the result should have no date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -119,15 +119,15 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void InvalidFormat()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid format", ((string[])(null)));
-#line 26
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 27
+#line 21
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
+#line 22
  testRunner.And("the folder name is not in a valid format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 23
  testRunner.When("I pre-process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
+#line 24
  testRunner.Then("the result should have no date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

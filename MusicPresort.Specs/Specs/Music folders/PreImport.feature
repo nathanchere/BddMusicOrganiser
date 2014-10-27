@@ -3,12 +3,6 @@
 	As a thingy
 	I want to determine the import date from a music folder
 
-#Scenario: No file date
-	#Given I have a music folder
-	#And the folder name begins with a recognised timestamp format
-	#When I pre-process the folder
-#	Then the result should be 120 on the screen
-
 Scenario: Valid date
 	Given I have a music folder
 	And the folder name is in a valid format

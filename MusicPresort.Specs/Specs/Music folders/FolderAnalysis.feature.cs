@@ -76,19 +76,19 @@ namespace MusicPresort.Specs.MusicFolders
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
-        [Xunit.TraitAttribute("Description", "Folder not previously analysed")]
-        public virtual void FolderNotPreviouslyAnalysed()
+        [Xunit.TraitAttribute("Description", "Should not process previously analysed folder")]
+        public virtual void ShouldNotProcessPreviouslyAnalysedFolder()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder not previously analysed", ((string[])(null)));
-#line 13
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should not process previously analysed folder", ((string[])(null)));
+#line 9
 this.ScenarioSetup(scenarioInfo);
-#line 14
+#line 10
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
+#line 11
  testRunner.And("the folder has no analysis cache", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 12
  testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 13
  testRunner.Then("the folder should be processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -96,20 +96,40 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
-        [Xunit.TraitAttribute("Description", "Folder previously analysed")]
-        public virtual void FolderPreviouslyAnalysed()
+        [Xunit.TraitAttribute("Description", "Should process folders which haven\'t been previously analysed")]
+        public virtual void ShouldProcessFoldersWhichHavenTBeenPreviouslyAnalysed()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder previously analysed", ((string[])(null)));
-#line 19
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should process folders which haven\'t been previously analysed", ((string[])(null)));
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 20
+#line 16
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
+#line 17
  testRunner.And("the folder has an analysis cache", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
+#line 18
  testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
+#line 19
  testRunner.Then("processing should be skipped", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
+        [Xunit.TraitAttribute("Description", "Analysis cache contains list of files in folder")]
+        public virtual void AnalysisCacheContainsListOfFilesInFolder()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analysis cache contains list of files in folder", ((string[])(null)));
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+ testRunner.Given("I have a music folder which hasn\'t been processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+ testRunner.And("the music folder has some files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.Then("analysis cache should list the input files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

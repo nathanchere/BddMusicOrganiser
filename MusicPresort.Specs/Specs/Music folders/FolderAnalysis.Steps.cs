@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Moq;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Kernel;
@@ -18,11 +19,11 @@ namespace MusicPresort.Specs
             _fixture.Customize<OrchestratorThingy>(c=>c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
             _fixture.Register<IFolderProcessor>(()=>mockProcessor.Object);            
             
-            _orchestratorThingy = _fixture.Create<OrchestratorThingy>();
-            
+            _orchestratorThingy = _fixture.Create<OrchestratorThingy>();            
         }
 
         private Fixture _fixture;
+        private List<DataFile> _files; 
         private Mock<IFolderProcessor> mockProcessor;
         private readonly OrchestratorThingy _orchestratorThingy;
         private MusicFolder _folder;
@@ -62,6 +63,19 @@ namespace MusicPresort.Specs
         {
             _folder = _fixture.Build<MusicFolder>().Create();
         }
+
+        [Given(@"I have a music folder which hasn't been processed")]
+        public void GivenIHaveAMusicFolderWhichHasnTBeenProcessed()
+        {
+            _folder = _fixture.Create<MusicFolder>();
+            _folder.Analysis = null;
+        }
+
+        [Given(@"the music folder has some files")]
+        public void GivenTheMusicFolderHasSomeFiles()
+        {
+            
+        }        
         #endregion
 
         #region When
@@ -78,6 +92,13 @@ namespace MusicPresort.Specs
         {
             mockProcessor.Verify(mock => mock.Process(It.IsAny<MusicFolder>()), Times.Once());
         }
+
+        [Then(@"analysis cache should list the input files")]
+        public void ThenAnalysisCacheShouldListTheInputFiles()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
 
         [Then(@"processing should be skipped")]
         public void ThenProcessingShouldBeSkipped()
