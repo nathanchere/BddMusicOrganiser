@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Moq;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Kernel;
@@ -32,15 +33,16 @@ namespace MusicPresort.Specs
 
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
-        
-            _folder._files.Add(
-                new MusicFile{
-                    ArtistName = artistName,
-                    AlbumTitle = albumTitle,
-                    TrackTitle = trackTitle,
-                    TrackNumber = trackNumber
-                }
-            );
+
+            throw new NotImplementedException();
+            //_folder._files.Add(
+            //    new MusicFile{
+            //        ArtistName = artistName,
+            //        AlbumTitle = albumTitle,
+            //        TrackTitle = trackTitle,
+            //        TrackNumber = trackNumber
+            //    }
+            //);
         }
 
         #endregion
@@ -96,7 +98,11 @@ namespace MusicPresort.Specs
         [Then(@"analysis cache should list the input files")]
         public void ThenAnalysisCacheShouldListTheInputFiles()
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(_folder.Analysis.Files.Count, _files.Count);
+            foreach (var file in _files)
+            {
+                Assert.Contains(file.FullPath, _folder.Analysis.Files.Select(x=>x.FullPath));
+            }
         }
 
 
@@ -107,10 +113,5 @@ namespace MusicPresort.Specs
         }
 
         #endregion
-    }
-
-    public class DataFile
-    {
-        public string FullPath { get; set; }
     }
 }

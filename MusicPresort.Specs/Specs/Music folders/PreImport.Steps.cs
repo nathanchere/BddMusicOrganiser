@@ -19,15 +19,15 @@ namespace MusicPresort.Specs
         #region Helpers
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
-        
-            _folder._files.Add(
-                new MusicFile{
-                    ArtistName = artistName,
-                    AlbumTitle = albumTitle,
-                    TrackTitle = trackTitle,
-                    TrackNumber = trackNumber
-                }
-            );
+            throw new NotImplementedException();
+            //_folder._files.Add(
+            //    new MusicFile{
+            //        ArtistName = artistName,
+            //        AlbumTitle = albumTitle,
+            //        TrackTitle = trackTitle,
+            //        TrackNumber = trackNumber
+            //    }
+            //);
         }
         #endregion
 

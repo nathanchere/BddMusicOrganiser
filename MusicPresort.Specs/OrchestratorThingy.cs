@@ -11,6 +11,7 @@ namespace MusicPresort
 
         public List<MusicFolder> GoodFolders { get; private set; }
         public List<MusicFolder> BadFolders { get; private set; }
+        public string RootFolder { get; set; }
 
         //TODO: probably move to some kind of folderValidator
         private readonly Func<MusicFile, bool> IsArtistMissing;
@@ -41,7 +42,7 @@ namespace MusicPresort
             IsTrackNumberSequenceIncomplete = f =>
             {
                 int i = 1;
-                foreach (var file in f._files.OrderBy(x => x.TrackNumber))
+                foreach (var file in f.Files.OrderBy(x => x.TrackNumber))
                 {
                     if (file.TrackNumber != i) return true;
                     i++;
@@ -53,23 +54,23 @@ namespace MusicPresort
 
         public bool IsValid(MusicFolder folder)
         {
-            if (!folder._files.Any()) return false;
+            if (!folder.Files.Any()) return false;
 
-            if (folder._files.Any(IsArtistMissing)) return false;
+            if (folder.Files.Any(IsArtistMissing)) return false;
 
-            if (folder._files.Any(IsAlbumMissing)) return false;
+            if (folder.Files.Any(IsAlbumMissing)) return false;
 
-            if (folder._files.Any(IsTrackNumberMissing)) return false;
+            if (folder.Files.Any(IsTrackNumberMissing)) return false;
 
-            if (folder._files.Any(IsTrackNameMissing)) return false;
+            if (folder.Files.Any(IsTrackNameMissing)) return false;
 
-            if (folder._files.Any(IsTrackNumberInvalid)) return false;
+            if (folder.Files.Any(IsTrackNumberInvalid)) return false;
 
             if (IsTrackNumberSequenceIncomplete(folder)) return false;
 
-            if (folder._files.Any(x => x.ArtistName != folder._files[0].ArtistName)) return false;
+            if (folder.Files.Any(x => x.ArtistName != folder.Files[0].ArtistName)) return false;
 
-            if (folder._files.Any(x => x.AlbumTitle != folder._files[0].AlbumTitle)) return false;
+            if (folder.Files.Any(x => x.AlbumTitle != folder.Files[0].AlbumTitle)) return false;
 
             return true;
         }

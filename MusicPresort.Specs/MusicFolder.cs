@@ -7,15 +7,10 @@ namespace MusicPresort.Specs
     {
         public MusicFolder()
         {
-            _files = new List<MusicFile>();
+            Files = new List<MusicFile>();
         }
 
-        public void Add(MusicFile musicFile)
-        {
-            _files.Add(musicFile);
-        }
-
-        public List<MusicFile> _files;
+        public List<MusicFile> Files;
 
         // Path? Root folder name?
         public string FileName { get; set; }
@@ -23,8 +18,28 @@ namespace MusicPresort.Specs
         public AnalysisCache Analysis { get; set; }
     }
 
+    public class MusicFolderFactory
+    {
+        private IFileSystem _fileSystem;
+
+        public MusicFolderFactory(IFileSystem fileSystem)
+        {
+            _fileSystem = fileSystem;
+        }
+
+        /// <summary>
+        /// Opens a folder on disk as a MusicFolder
+        /// </summary>       
+        public MusicFolder Open(string directory)
+        {
+            var result = new MusicFolder();
+            return new MusicFolder();
+        }
+    }
+
     // Analysis cache
     public class AnalysisCache
     {
+        public IList<DataFile> Files { get; set; }
     }
 }

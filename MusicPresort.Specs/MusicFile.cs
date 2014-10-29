@@ -38,7 +38,7 @@ namespace MusicPresort.Specs
             var albumTitle = "Album Number " + counter;
             for (int i = 1; i < rnd.Next(3, 10); ++i)
             {
-                _files.Add(new MusicFile{
+                Files.Add(new MusicFile{
                     ArtistName = artistName,
                     AlbumTitle = albumTitle,
                     TrackNumber = i,

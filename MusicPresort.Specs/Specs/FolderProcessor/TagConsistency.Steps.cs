@@ -1,4 +1,7 @@
-﻿using TechTalk.SpecFlow;
+﻿using System;
+using System.Linq;
+using Ploeh.AutoFixture;
+using TechTalk.SpecFlow;
 using Xunit;
 
 namespace MusicPresort.Specs.FolderProcessor
@@ -7,27 +10,29 @@ namespace MusicPresort.Specs.FolderProcessor
     class TagConsistencySteps
     {
         private readonly OrchestratorThingy _orchestratorThingy;
+        private readonly Fixture _fixture;
 
         private MusicFolder _folder;
 
         public TagConsistencySteps()
         {
             _orchestratorThingy = new OrchestratorThingy();
+            _fixture = new Fixture();
         }
 
         #region Helpers
 
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
-        
-            _folder._files.Add(
-                new MusicFile{
-                    ArtistName = artistName,
-                    AlbumTitle = albumTitle,
-                    TrackTitle = trackTitle,
-                    TrackNumber = trackNumber
-                }
-            );
+            throw new NotImplementedException();
+            //_folder._files.Add(
+            //    new MusicFile{
+            //        ArtistName = artistName,
+            //        AlbumTitle = albumTitle,
+            //        TrackTitle = trackTitle,
+            //        TrackNumber = trackNumber
+            //    }
+            //);
         }
 
         #endregion
@@ -61,7 +66,7 @@ namespace MusicPresort.Specs.FolderProcessor
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
-            _folder = new MusicFolder();
+            _folder = _fixture.Create<MusicFolder>();
         }
 
         [Given(@"the folder has MP3s with mixed artist names")]
@@ -75,9 +80,7 @@ namespace MusicPresort.Specs.FolderProcessor
         [Given(@"the folder has MP3s with missing track titles")]
         public void GivenTheFolderHasMP3sWithMissingTrackTitles()
         {
-            AddFile("Some artist", "Some album", "Track 1", 1);
-            AddFile("Some artist", "Some album", "", 2);
-            AddFile("Some artist", "Some album", "Track 3", 3);
+            _folder.Files.Last().TrackTitle = "";
         }
 
         [Given(@"the folder has MP3s with an incomplete sequence of track numbers")]
