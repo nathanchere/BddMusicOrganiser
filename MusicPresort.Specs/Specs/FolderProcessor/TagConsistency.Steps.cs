@@ -24,49 +24,24 @@ namespace MusicPresort.Specs.FolderProcessor
 
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
-            throw new NotImplementedException();
-            //_folder._files.Add(
-            //    new MusicFile{
-            //        ArtistName = artistName,
-            //        AlbumTitle = albumTitle,
-            //        TrackTitle = trackTitle,
-            //        TrackNumber = trackNumber
-            //    }
-            //);
+            _folder.Files.Add(
+                new MusicFile
+                {
+                    ArtistName = artistName,
+                    AlbumTitle = albumTitle,
+                    TrackTitle = trackTitle,
+                    TrackNumber = trackNumber
+                }
+            );
         }
 
         #endregion
 
         #region Given
-        [Given(@"the folder has no analysis cache")]
-        public void GivenTheFolderHasNoAnalysisCache()
-        {
-            _folder.Analysis = null;
-        }
-
-        [Given(@"the folder name is in a valid format")]
-        public void GivenTheFolderNameIsInAValidFormat()
-        {
-            _folder.FileName = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
-        }
-
-        [Given(@"the folder name is not in a valid format")]
-        public void GivenTheFolderNameIsNotInAValidFormat()
-        {
-            _folder.FileName = "1977 Fleetwood.Mac.Rumours [vinyl rip]";
-        }
-
-        [Given(@"the folder name is in a valid format but with an invalid date")]
-        public void GivenTheFolderNameIsInAValidFormatButWithAnInvalidDate()
-        {
-            _folder.FileName = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
-        }
-
-
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
-            _folder = _fixture.Create<MusicFolder>();
+            _folder = new MusicFolder();
         }
 
         [Given(@"the folder has MP3s with mixed artist names")]
@@ -80,7 +55,9 @@ namespace MusicPresort.Specs.FolderProcessor
         [Given(@"the folder has MP3s with missing track titles")]
         public void GivenTheFolderHasMP3sWithMissingTrackTitles()
         {
-            _folder.Files.Last().TrackTitle = "";
+            AddFile("Some artist", "Some album", "Track 1", 1);
+            AddFile("Some artist", "Some album", "", 2);
+            AddFile("Some artist", "Some album", "Track 3", 3);
         }
 
         [Given(@"the folder has MP3s with an incomplete sequence of track numbers")]
@@ -90,7 +67,6 @@ namespace MusicPresort.Specs.FolderProcessor
             AddFile("Some artist", "Some album", "Track 2", 2);
             AddFile("Some artist", "Some album", "Track 4", 4);
         }
-
 
         [Given(@"the folder has MP3s with missing track numbers")]
         public void GivenTheFolderHasMP3sWithMissingTrackNumbers()
