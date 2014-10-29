@@ -10,14 +10,11 @@ namespace MusicPresort.Specs.FolderProcessor
     class TagConsistencySteps
     {
         private readonly OrchestratorThingy _orchestratorThingy;
-        private readonly Fixture _fixture;
-
         private MusicFolder _folder;
 
         public TagConsistencySteps()
         {
             _orchestratorThingy = new OrchestratorThingy();
-            _fixture = new Fixture();
         }
 
         #region Helpers
@@ -34,7 +31,6 @@ namespace MusicPresort.Specs.FolderProcessor
                 }
             );
         }
-
         #endregion
 
         #region Given
@@ -92,7 +88,6 @@ namespace MusicPresort.Specs.FolderProcessor
             AddFile("Some artist", "", "Track 3", 3);
         }
 
-
         [Given(@"the folder has MP3s with missing artist names")]
         public void GivenTheFolderHasMP3sWithMissingArtistNames()
         {
@@ -122,12 +117,6 @@ namespace MusicPresort.Specs.FolderProcessor
         {
             _orchestratorThingy.ProcessFolder(_folder);
         }
-
-        [When(@"I pre-process the folder")]
-        public void WhenIPre_ProcessTheFolder()
-        {
-            _orchestratorThingy.PreprocessFolder(_folder);
-        }
         #endregion
 
         #region Then
@@ -135,27 +124,7 @@ namespace MusicPresort.Specs.FolderProcessor
         public void ThenTheFolderShouldBeFilteredOut()
         {
             Assert.Contains(_folder, _orchestratorThingy.BadFolders);
-        }
-
-        [Then(@"the result should have the date")]
-        public void ThenTheResultShouldHaveTheDate()
-        {
-            Assert.True(_folder.Date != null);
-        }
-
-        [Then(@"the result should have no date")]
-        public void ThenTheResultShouldHaveNoDate()
-        {
-            Assert.True(_folder.Date == null);
-        }
-
-        [Then(@"the folder should be processed")]
-        public void ThenTheFolderShouldBeProcessed()
-        {
-            //Assert.
-            //_thingy.PreprocessFolder();
-        }
-
+        }        
         #endregion
     }
 }
