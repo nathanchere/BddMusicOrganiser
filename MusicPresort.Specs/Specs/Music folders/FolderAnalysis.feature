@@ -19,8 +19,8 @@ Scenario: Should process folders which haven't been previously analysed
 	Then processing should be skipped
 
 Scenario: Analysis cache contains list of files in folder
-	Given I have a music folder which hasn't been processed
-	And the music folder has some files
+	Given I have a music folder
+	And the music folder hasn't been processed
 	When I process the folder
-	Then analysis cache should list the input files
+	Then analysis cache should list the files in the music folder
 

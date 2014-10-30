@@ -66,18 +66,11 @@ namespace MusicPresort.Specs
             _folder = _fixture.Build<MusicFolder>().Create();
         }
 
-        [Given(@"I have a music folder which hasn't been processed")]
-        public void GivenIHaveAMusicFolderWhichHasnTBeenProcessed()
-        {
-            _folder = _fixture.Create<MusicFolder>();
+        [Given(@"the music folder hasn't been processed")]
+        public void GivenTheMusicFolderHasnTBeenProcessed()
+        {            
             _folder.Analysis = null;
         }
-
-        [Given(@"the music folder has some files")]
-        public void GivenTheMusicFolderHasSomeFiles()
-        {
-            
-        }        
         #endregion
 
         #region When
@@ -95,9 +88,9 @@ namespace MusicPresort.Specs
             mockProcessor.Verify(mock => mock.Process(It.IsAny<MusicFolder>()), Times.Once());
         }
 
-        [Then(@"analysis cache should list the input files")]
-        public void ThenAnalysisCacheShouldListTheInputFiles()
-        {
+        [Then(@"analysis cache should list the files in the music folder")]
+        public void ThenAnalysisCacheShouldListTheFilesInTheMusicFolder()
+        {            
             Assert.Equal(_folder.Analysis.Files.Count, _files.Count);
             foreach (var file in _files)
             {
