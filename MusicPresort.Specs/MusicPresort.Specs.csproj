@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFolderAnalyser.cs" />
     <Compile Include="IFolderProcessor.cs" />
     <Compile Include="IntegrationTests\IntegrationTests.cs" />
     <Compile Include="Specs\FolderProcessor\TagConsistency.feature.cs">
