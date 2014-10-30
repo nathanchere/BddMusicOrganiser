@@ -21,15 +21,16 @@ namespace MusicPresort
         private readonly Func<MusicFolder, bool> IsTrackNumberSequenceIncomplete;
         private readonly Func<MusicFile, bool> IsTrackNameMissing;
 
+        private IFolderAnalyser _analyser;
         private IFolderProcessor _processor;
 
         public OrchestratorThingy() : this(
-            new FolderProcessor()
-        ){}
+            new FolderProcessor(), new FolderAnalyser()){}
 
-        public OrchestratorThingy(IFolderProcessor processor)
+        public OrchestratorThingy(IFolderProcessor processor, IFolderAnalyser analyser)
         {
             _processor = processor;
+            _analyser = analyser;
 
             GoodFolders = new List<MusicFolder>();
             BadFolders = new List<MusicFolder>();
