@@ -18,15 +18,15 @@ namespace MusicPresort.Specs.MusicFolders
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class FolderAnalysisFeature : Xunit.IUseFixture<FolderAnalysisFeature.FixtureData>, System.IDisposable
+    public partial class OrchestratorThingyFeature : Xunit.IUseFixture<OrchestratorThingyFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "FolderAnalysis.feature"
+#line 1 "OrchestratorThingy.feature"
 #line hidden
         
-        public FolderAnalysisFeature()
+        public OrchestratorThingyFeature()
         {
             this.TestInitialize();
         }
@@ -34,7 +34,7 @@ namespace MusicPresort.Specs.MusicFolders
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Folder analysis", "In order to provide an audit trail if anything goes wrong\nAnd improve performance" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Orchestrator thingy", "In order to provide an audit trail if anything goes wrong\nAnd improve performance" +
                     " when running the import multiple times\nAs a thingy\nI want to persist a cache of" +
                     " import results", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
@@ -65,7 +65,7 @@ namespace MusicPresort.Specs.MusicFolders
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(FolderAnalysisFeature.FixtureData fixtureData)
+        public virtual void SetFixture(OrchestratorThingyFeature.FixtureData fixtureData)
         {
         }
         
@@ -74,22 +74,44 @@ namespace MusicPresort.Specs.MusicFolders
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
-        [Xunit.TraitAttribute("Description", "Analysis cache contains list of files in folder")]
-        public virtual void AnalysisCacheContainsListOfFilesInFolder()
+        [Xunit.FactAttribute(Skip="Ignored")]
+        [Xunit.TraitAttribute("FeatureTitle", "Orchestrator thingy")]
+        [Xunit.TraitAttribute("Description", "Should not process previously analysed folder")]
+        public virtual void ShouldNotProcessPreviouslyAnalysedFolder()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analysis cache contains list of files in folder", ((string[])(null)));
-#line 9
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should not process previously analysed folder", new string[] {
+                        "ignore"});
+#line 8
 this.ScenarioSetup(scenarioInfo);
-#line 10
+#line 9
  testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+ testRunner.And("the folder has no analysis cache", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("the music folder hasn\'t been processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.When("I analyse the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.Then("analysis cache should list the files in the music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the folder should be processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(Skip="Ignored")]
+        [Xunit.TraitAttribute("FeatureTitle", "Orchestrator thingy")]
+        [Xunit.TraitAttribute("Description", "Should process folders which haven\'t been previously analysed")]
+        public virtual void ShouldProcessFoldersWhichHavenTBeenPreviouslyAnalysed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should process folders which haven\'t been previously analysed", new string[] {
+                        "ignore"});
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 15
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.And("the folder has an analysis cache", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.When("I process the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.Then("processing should be skipped", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -101,12 +123,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                FolderAnalysisFeature.FeatureSetup();
+                OrchestratorThingyFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                FolderAnalysisFeature.FeatureTearDown();
+                OrchestratorThingyFeature.FeatureTearDown();
             }
         }
     }

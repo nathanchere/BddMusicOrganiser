@@ -1,4 +1,4 @@
-﻿namespace MusicPresort.Specs
+﻿namespace MusicPresort
 {
     public class DataFile
     {

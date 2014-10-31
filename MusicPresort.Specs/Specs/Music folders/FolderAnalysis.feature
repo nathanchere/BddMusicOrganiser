@@ -6,21 +6,9 @@
 
 # assumes pre-import is already done and passed on these examples
 
-Scenario: Should not process previously analysed folder
-	Given I have a music folder
-	And the folder has no analysis cache
-	When I process the folder
-	Then the folder should be processed
-
-Scenario: Should process folders which haven't been previously analysed
-	Given I have a music folder
-	And the folder has an analysis cache
-	When I process the folder
-	Then processing should be skipped
-
 Scenario: Analysis cache contains list of files in folder
 	Given I have a music folder
 	And the music folder hasn't been processed
-	When I process the folder
+	When I analyse the folder
 	Then analysis cache should list the files in the music folder
 

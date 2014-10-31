@@ -4,6 +4,12 @@ namespace MusicPresort.Specs
 {
     public class MusicFile
     {
+        /// <summary>
+        /// Full path on disk
+        /// TODO: change to relative path from analysis root folder
+        /// </summary>
+        public string Path { get; set; }
+
         public string ArtistName { get; set; }
         public string AlbumTitle { get; set; }
         public string TrackTitle { get; set; }

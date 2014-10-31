@@ -37,9 +37,4 @@ namespace MusicPresort.Specs
         }
     }
 
-    // Analysis cache
-    public class AnalysisCache
-    {
-        public IList<DataFile> Files { get; set; }
-    }
 }

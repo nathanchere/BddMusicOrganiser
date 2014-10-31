@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisCache.cs" />
     <Compile Include="IFolderAnalyser.cs" />
     <Compile Include="IFolderProcessor.cs" />
     <Compile Include="IntegrationTests\IntegrationTests.cs" />
@@ -80,7 +81,12 @@
       <DependentUpon>TagConsistency.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\FolderProcessor\TagConsistency.Steps.cs" />
-    <Compile Include="Specs\Music folders\DataFile.cs" />
+    <Compile Include="DataFile.cs" />
+    <Compile Include="Specs\Music folders\OrchestratorThingy.feature.cs">
+      <DependentUpon>OrchestratorThingy.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Specs\Music folders\PreImport.Steps.cs" />
     <Compile Include="Specs\Music folders\PreImport.feature.cs">
       <AutoGen>True</AutoGen>
@@ -100,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Specs\Music folders\OrchestratorThingy.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OrchestratorThingy.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\Music folders\PreImport.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PreImport.feature.cs</LastGenOutput>

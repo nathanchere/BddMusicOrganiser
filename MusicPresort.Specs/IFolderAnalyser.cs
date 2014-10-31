@@ -22,6 +22,13 @@ namespace MusicPresort
         public AnalysisCache Analyse(MusicFolder folder)
         {
             var result = new AnalysisCache();
+            
+            foreach (var file in folder.Files)
+            {
+                result.Files.Add(new DataFile{FullPath = file.Path});
+            }
+
+            folder.Analysis = result;
             return result;
         }
 

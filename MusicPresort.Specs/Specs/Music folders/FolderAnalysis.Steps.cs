@@ -14,26 +14,17 @@ namespace MusicPresort.Specs
     {
         public FolderAnalysisSteps()
         {
-            mockProcessor = new Mock<IFolderProcessor>();
-
-            _fixture = new Fixture();            
-            _fixture.Customize<OrchestratorThingy>(c=>c.FromFactory(new MethodInvoker(new GreedyConstructorQuery())));
-            _fixture.Register<IFolderProcessor>(()=>mockProcessor.Object);            
-            
-            _orchestratorThingy = _fixture.Create<OrchestratorThingy>();            
+            _analyser = new FolderAnalyser();
+            _fixture = new Fixture();
         }
 
-        private Fixture _fixture;
-        private List<DataFile> _files; 
-        private Mock<IFolderProcessor> mockProcessor;
-        private readonly OrchestratorThingy _orchestratorThingy;
+        private Fixture _fixture;        
+        private readonly IFolderAnalyser _analyser;
         private MusicFolder _folder;
 
         #region Helpers
-
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
         {
-
             throw new NotImplementedException();
             //_folder._files.Add(
             //    new MusicFile{
@@ -63,7 +54,7 @@ namespace MusicPresort.Specs
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
-            _folder = _fixture.Build<MusicFolder>().Create();
+            _folder = _fixture.Create<MusicFolder>();
         }
 
         [Given(@"the music folder hasn't been processed")]
@@ -74,37 +65,23 @@ namespace MusicPresort.Specs
         #endregion
 
         #region When
-        [When(@"I process the folder")]
-        public void WhenIProcessTheFolder()
+        [When(@"I analyse the folder")]
+        public void WhenIAnalysesTheFolder()
         {
-            _orchestratorThingy.ProcessFolder(_folder);
+            _analyser.Analyse(_folder);
         }
         #endregion
 
         #region Then       
-        [Then(@"the folder should be processed")]
-        public void ThenTheFolderShouldBeProcessed()
-        {
-            mockProcessor.Verify(mock => mock.Process(It.IsAny<MusicFolder>()), Times.Once());
-        }
-
         [Then(@"analysis cache should list the files in the music folder")]
         public void ThenAnalysisCacheShouldListTheFilesInTheMusicFolder()
         {            
-            Assert.Equal(_folder.Analysis.Files.Count, _files.Count);
-            foreach (var file in _files)
+            Assert.Equal(_folder.Analysis.Files.Count, _folder.Files.Count);
+            foreach (var file in _folder.Files)
             {
-                Assert.Contains(file.FullPath, _folder.Analysis.Files.Select(x=>x.FullPath));
+                Assert.Contains(file.Path, _folder.Analysis.Files.Select(x=>x.FullPath));
             }
         }
-
-
-        [Then(@"processing should be skipped")]
-        public void ThenProcessingShouldBeSkipped()
-        {
-            mockProcessor.Verify(mock=>mock.Process(It.IsAny<MusicFolder>()), Times.Never());
-        }
-
         #endregion
     }
 }
