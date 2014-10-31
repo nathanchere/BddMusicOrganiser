@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MusicPresort.Specs.MusicFolders
+namespace MusicPresort.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -34,9 +34,9 @@ namespace MusicPresort.Specs.MusicFolders
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Initial folder import", "In order to determine which folders are valid for processing\nAs a MusicFolderFact" +
-                    "ory (WTF do I put here?)\nI want to verify that input directories exist\nAnd that " +
-                    "the folder name contains the import date", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Initial folder import", "In order to determine which folders are valid for processing\r\nAs a MusicFolderFac" +
+                    "tory (WTF do I put here?)\r\nI want to verify that input directories exist\r\nAnd th" +
+                    "at the folder name contains the import date", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

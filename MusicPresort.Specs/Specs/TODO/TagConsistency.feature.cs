@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MusicPresort.Specs.FolderProcessor
+namespace MusicPresort.Specs.TODO
 {
     using TechTalk.SpecFlow;
     
@@ -34,9 +34,9 @@ namespace MusicPresort.Specs.FolderProcessor
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Tag consistency", "In order to determine if a music folder is ready to be catalogued\nAs a pre-sort f" +
-                    "ilter\nI want to filter out any invalid folders\n\nTODO: how to handle AlbumArtist?" +
-                    "\nTODO: Disc number?\nTODO: handling numbers like \"4/11\"", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Tag consistency", "In order to determine if a music folder is ready to be catalogued\r\nAs a pre-sort " +
+                    "filter\r\nI want to filter out any invalid folders\r\n\r\nTODO: how to handle AlbumArt" +
+                    "ist?\r\nTODO: Disc number?\r\nTODO: handling numbers like \"4/11\"", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

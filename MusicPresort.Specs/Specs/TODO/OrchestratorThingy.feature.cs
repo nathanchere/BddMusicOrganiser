@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MusicPresort.Specs.MusicFolders
+namespace MusicPresort.Specs.TODO
 {
     using TechTalk.SpecFlow;
     
@@ -34,9 +34,9 @@ namespace MusicPresort.Specs.MusicFolders
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Orchestrator thingy", "In order to provide an audit trail if anything goes wrong\nAnd improve performance" +
-                    " when running the import multiple times\nAs a thingy\nI want to persist a cache of" +
-                    " import results", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Orchestrator thingy", "In order to provide an audit trail if anything goes wrong\r\nAnd improve performanc" +
+                    "e when running the import multiple times\r\nAs a thingy\r\nI want to persist a cache" +
+                    " of import results", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
