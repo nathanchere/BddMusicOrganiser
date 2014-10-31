@@ -75,6 +75,7 @@
     <Compile Include="IFolderAnalyser.cs" />
     <Compile Include="IFolderProcessor.cs" />
     <Compile Include="IntegrationTests\IntegrationTests.cs" />
+    <Compile Include="MusicFolderFactory.cs" />
     <Compile Include="Specs\FolderProcessor\TagConsistency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,11 +88,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Specs\Music folders\PreImport.Steps.cs" />
-    <Compile Include="Specs\Music folders\PreImport.feature.cs">
+    <Compile Include="Specs\Music folders\InitialFolderImport.Steps.cs" />
+    <Compile Include="Specs\Music folders\InitialFolderImport.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PreImport.feature</DependentUpon>
+      <DependentUpon>InitialFolderImport.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\Music folders\FolderAnalysis.feature.cs">
       <AutoGen>True</AutoGen>
@@ -110,9 +111,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>OrchestratorThingy.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\Music folders\PreImport.feature">
+    <None Include="Specs\Music folders\InitialFolderImport.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>PreImport.feature.cs</LastGenOutput>
+      <LastGenOutput>InitialFolderImport.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\Music folders\FolderAnalysis.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -4,40 +4,41 @@ using Xunit;
 
 namespace MusicPresort.Specs
 {
-    [Binding, Scope(Feature = "Preimport")]
-    class PreimportSteps
+    [Binding, Scope(Feature = "Initial folder import")]
+    class InitialFolderImportSteps
     {
-        private readonly OrchestratorThingy _orchestratorThingy;
+        private readonly MusicFolderFactory _folderFactory;
 
+        private string _path;
         private MusicFolder _folder;
 
-        public PreimportSteps()
+        public InitialFolderImportSteps()
         {
-            _orchestratorThingy = new OrchestratorThingy();
+            _folderFactory = new MusicFolderFactory();
         }
 
         #region Given
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
-            _folder.FileName = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _path = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
         }
 
         [Given(@"the folder name is not in a valid format")]
         public void GivenTheFolderNameIsNotInAValidFormat()
         {
-            _folder.FileName = "1977 Fleetwood.Mac.Rumours [vinyl rip]";
+            _path = "1977 Fleetwood.Mac.Rumours [vinyl rip]";
         }
 
         [Given(@"the folder name is in a valid format but with an invalid date")]
         public void GivenTheFolderNameIsInAValidFormatButWithAnInvalidDate()
         {
-            _folder.FileName = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _path = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
         }
 
 
-        [Given(@"I have a music folder")]
-        public void GivenIHaveAMusicFolder()
+        [Given(@"I have a full folder path")]
+        public void GivenIHaveAFullFolder()
         {
             _folder = new MusicFolder();
         }      
@@ -47,7 +48,7 @@ namespace MusicPresort.Specs
         [When(@"I pre-process the folder")]
         public void WhenIPre_ProcessTheFolder()
         {
-            _orchestratorThingy.PreprocessFolder(_folder);
+            _folderFactory.Open(_path);
         }
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using MusicPresort.Specs;
 
@@ -46,16 +47,29 @@ namespace MusicPresort
         /// <summary>
         /// Basic/shallow verification of folder suitability for processing
         /// </summary>
-        public void PreprocessFolder(MusicFolder folder)
-        {            
+        public MusicFolder ImportFolder(string fullPath)
+        {
+            var result = new MusicFolder();
+
             try
-            {
-                if (string.IsNullOrEmpty(folder.FileName)) return;
-                folder.Date = new Date(folder.FileName.Split(' ')[0]);
+            {                
+
+                if (string.IsNullOrEmpty(fullPath)) return null;
+                // If not folder exists on disk return null                
+
+                var folderName = Path.GetDirectoryName(fullPath);
+                var folderDate = new Date(folderName.Split(' ')[0]);
+                var folderCaption = folderName.Substring(folderName.Split(' ')[0].Length);
+
+
+                // enumerate files
+
+                return result;
             }
             catch (Exception ex)
             {
-                // TODO: WTF was I doing here
+                // return null?
+                throw;
             }            
         }
     }

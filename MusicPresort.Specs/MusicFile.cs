@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MusicPresort.Specs
+namespace MusicPresort
 {
     public class MusicFile
     {

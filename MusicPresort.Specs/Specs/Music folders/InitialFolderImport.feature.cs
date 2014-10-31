@@ -18,15 +18,15 @@ namespace MusicPresort.Specs.MusicFolders
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class PreimportFeature : Xunit.IUseFixture<PreimportFeature.FixtureData>, System.IDisposable
+    public partial class InitialFolderImportFeature : Xunit.IUseFixture<InitialFolderImportFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "PreImport.feature"
+#line 1 "InitialFolderImport.feature"
 #line hidden
         
-        public PreimportFeature()
+        public InitialFolderImportFeature()
         {
             this.TestInitialize();
         }
@@ -34,7 +34,7 @@ namespace MusicPresort.Specs.MusicFolders
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Preimport", "In order to know when an album was added to the catalog\nAs a thingy\nI want to det" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Initial folder import", "In order to know when an album was added to the catalog\nAs a thingy\nI want to det" +
                     "ermine the import date from a music folder", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -64,7 +64,7 @@ namespace MusicPresort.Specs.MusicFolders
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(PreimportFeature.FixtureData fixtureData)
+        public virtual void SetFixture(InitialFolderImportFeature.FixtureData fixtureData)
         {
         }
         
@@ -74,7 +74,7 @@ namespace MusicPresort.Specs.MusicFolders
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
+        [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
         [Xunit.TraitAttribute("Description", "Valid date")]
         public virtual void ValidDate()
         {
@@ -82,7 +82,7 @@ namespace MusicPresort.Specs.MusicFolders
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a full folder path", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
  testRunner.And("the folder name is in a valid format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
@@ -94,7 +94,7 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
+        [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
         [Xunit.TraitAttribute("Description", "Invalid date")]
         public virtual void InvalidDate()
         {
@@ -102,7 +102,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line 13
- testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a full folder path", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
  testRunner.And("the folder name is in a valid format but with an invalid date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
@@ -114,7 +114,7 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Xunit.FactAttribute()]
-        [Xunit.TraitAttribute("FeatureTitle", "Preimport")]
+        [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
         [Xunit.TraitAttribute("Description", "Invalid format")]
         public virtual void InvalidFormat()
         {
@@ -122,7 +122,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 this.ScenarioSetup(scenarioInfo);
 #line 21
- testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a full folder path", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
  testRunner.And("the folder name is not in a valid format", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
@@ -140,12 +140,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                PreimportFeature.FeatureSetup();
+                InitialFolderImportFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                PreimportFeature.FeatureTearDown();
+                InitialFolderImportFeature.FeatureTearDown();
             }
         }
     }

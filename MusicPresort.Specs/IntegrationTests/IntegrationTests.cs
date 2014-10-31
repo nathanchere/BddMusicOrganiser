@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -12,12 +13,12 @@ namespace MusicPresort
 {
     public class IntegrationTests
     {
-        private IFileSystem _fileSystem;
+        
 
         private void InitialiseMockFileSystem()
         {
             var mock = new Mock<IFileSystem>();
-            mock.Setup(m => m.GetDirectories(It.IsAny<string>())).Returns(() => null);
+            //mock.Setup(m => m.GetDirectories(It.IsAny<string>())).Returns(() => null);
         }
 
         public void Sandwich()
@@ -33,19 +34,6 @@ namespace MusicPresort
 
             //x.PreprocessFolder();
 
-        }
-    }
-
-    public interface IFileSystem
-    {
-        IList<string> GetDirectories(string rootPath);
-    }
-
-    class FileSystem : IFileSystem
-    {
-        public IList<string> GetDirectories(string rootPath)
-        {
-            return Directory.GetDirectories(rootPath);
         }
     }
 
