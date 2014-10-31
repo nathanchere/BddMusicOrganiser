@@ -14,6 +14,7 @@ namespace MusicPresort.Specs
         private readonly Fixture _fixture;
         private readonly MockFileSystem _fileSystem;
         private string _path;
+        private Date _date;
         private ImportResult _result;
 
         private List<Exception> _exceptions; 
@@ -34,19 +35,17 @@ namespace MusicPresort.Specs
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
-            _path = "2010-01-30 " + _fixture.Create<string>();
-        }
+            _date = new Date(2010,1,31);
+            _path = string.Format(@"{0}\{1} {2}", _path, _date, _fixture.Create<string>());
+        } 
 
         [Given(@"the folder name is not in a valid format")]
-        public void GivenTheFolderNameIsNotInAValidFormat()
-        {
-            _path = "1977 Fleetwood.Mac.Rumours [vinyl rip]";
-        }
+        public void GivenTheFolderNameIsNotInAValidFormat() { }
 
         [Given(@"the folder name is in a valid format but with an invalid date")]
         public void GivenTheFolderNameIsInAValidFormatButWithAnInvalidDate()
         {
-            _path = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _path = string.Format(@"{0}\2010-02-30 {1}", _path, _fixture.Create<string>());
         }
 
         [Given(@"the folder path exists on disk")]
@@ -68,8 +67,6 @@ namespace MusicPresort.Specs
         }
         #endregion
 
-
-
         #region Then       
         [Then(@"the result should not have a 'Not Found' error")]
         public void ThenTheResultShouldNotHaveANotFoundError()
@@ -83,17 +80,22 @@ namespace MusicPresort.Specs
             Assert.Equal(ImportResult.ResultEnum.PathNotFound, _result.Result);
         }
 
+        [Then(@"the result should have an 'Invalid Date' error")]
+        public void ThenTheResultShouldHaveAnInvalidDateError()
+        {
+            Assert.Equal(ImportResult.ResultEnum.InvalidDate, _result.Result);
+        }
 
         [Then(@"the result should have the date")]
         public void ThenTheResultShouldHaveTheDate()
         {
-            Assert.True(_result.Folder.Date != null);
+            Assert.Equal(_date, _result.Folder.Date);
         }
 
         [Then(@"the result should have no date")]
         public void ThenTheResultShouldHaveNoDate()
         {
-            Assert.True(_result.Folder.Date == null);
+            Assert.True(_result.Folder == null || _result.Folder.Date == null);
         }        
         #endregion
     }

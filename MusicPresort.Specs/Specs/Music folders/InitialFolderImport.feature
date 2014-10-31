@@ -24,17 +24,18 @@ Scenario: Valid date
 	Then the result should have the date
 
 Scenario: Invalid date
-	Given I have a full folder path
+	Given a folder path
 	And the folder name is in a valid format but with an invalid date
-	When I pre-process the folder
+	And the folder path exists on disk
+	When the folder is imported
 	Then the result should have no date
-	# and the result should have an error "Invalid date"
-	# Date validation to come later
+	And the result should have an 'Invalid Date' error
 
 Scenario: Invalid format
-	Given I have a full folder path
+	Given a folder path
 	And the folder name is not in a valid format
-	When I pre-process the folder
+	And the folder path exists on disk
+	When the folder is imported
 	Then the result should have no date
 	# and the result should have an error "Invalid format"
 
