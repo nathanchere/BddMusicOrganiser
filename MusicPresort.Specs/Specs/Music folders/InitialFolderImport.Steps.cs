@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO.Abstractions;
+using System.IO.Abstractions.TestingHelpers;
+using Ploeh.AutoFixture;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -6,18 +10,36 @@ namespace MusicPresort.Specs
 {
     [Binding, Scope(Feature = "Initial folder import")]
     class InitialFolderImportSteps
-    {
-        private readonly MusicFolderFactory _folderFactory;
-
+    {        
+        private readonly Fixture _fixture;
+        private readonly Dictionary<string,MockFileData> _fileSystem;
         private string _path;
         private MusicFolder _folder;
 
+        private List<Exception> _exceptions; 
+
         public InitialFolderImportSteps()
         {
-            _folderFactory = new MusicFolderFactory();
+            _fixture = new Fixture();
+            _fileSystem = new Dictionary<string, MockFileData>();
+            _exceptions = new List<Exception>();
         }
 
         #region Given
+        [Given(@"a folder path")]
+        public void GivenAFolderPath() {
+            _path = _fixture.Create<string>();
+        }
+
+        [Given(@"the folder path exists on disk")]
+        public void GivenTheFolderPathExistsOnDisk()
+        {
+            _fileSystem.Add(_path, _fixture.Create<MockFileData>());
+        }
+
+        [Given(@"the folder path doesn't exist on disk")]
+        public void GivenTheFolderPathDoesnTExistOnDisk(){ }
+
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
@@ -34,23 +56,19 @@ namespace MusicPresort.Specs
         public void GivenTheFolderNameIsInAValidFormatButWithAnInvalidDate()
         {
             _path = "2010-02-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
-        }
-
-
-        [Given(@"I have a full folder path")]
-        public void GivenIHaveAFullFolder()
-        {
-            _folder = new MusicFolder();
-        }      
+        }   
         #endregion
 
         #region When        
-        [When(@"I pre-process the folder")]
-        public void WhenIPre_ProcessTheFolder()
+        [When(@"the folder is imported")]
+        public void WhenTheFolderIsImported()
         {
-            _folderFactory.Open(_path);
+            var factory = new MusicFolderFactory(new MockFileSystem(_fileSystem));            
+            _folder = factory.Open(_path);
         }
         #endregion
+
+
 
         #region Then       
         [Then(@"the result should have the date")]

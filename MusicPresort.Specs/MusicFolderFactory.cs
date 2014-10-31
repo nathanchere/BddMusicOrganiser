@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO.Abstractions;
+using System.IO.Abstractions.TestingHelpers;
 
 namespace MusicPresort
 {
@@ -15,22 +17,28 @@ namespace MusicPresort
         /// <summary>
         /// Opens a folder on disk as a MusicFolder
         /// </summary>       
-        public MusicFolder Open(string fullPath)
+        public ImportResult Import(string fullPath)
         {
-            var result = new MusicFolder();
-
             try
             {
-                // TODO: better/informative error reporting
-                if (string.IsNullOrEmpty(fullPath)) return null;
-                if (!fs.Directory.Exists(fullPath)) return null;              
+                if (string.IsNullOrEmpty(fullPath) || !fs.Directory.Exists(fullPath))
+                {
+                    return new ImportResult { Result = ImportResult.ResultEnum.PathNotFound };
+                }
 
-                var folderName = fs.Path.GetDirectoryName(fullPath);
-                var folderDate = new Date(folderName.Split(' ')[0]);
-                var folderCaption = folderName.Substring(folderName.Split(' ')[0].Length);
+                var folder = new MusicFolder();
+                folder.FullPath = fullPath;
+                folder.FileName = fs.Path.GetDirectoryName(fullPath);
+                folder.Date = new Date(folder.FileName.Split(' ')[0]);
+                //var folderCaption = folderName.Substring(folderName.Split(' ')[0].Length);
 
-                // enumerate files
+                
+                
 
+                return new ImportResult{
+                    Folder = folder,
+                    // include analysis cache if it already exists
+                };                
                 return result;
             }
             catch (Exception ex)
@@ -39,6 +47,16 @@ namespace MusicPresort
                 throw;
             }     
 
+        }
+    }
+
+    public static class  TestFileSystemBuilder
+    {
+        public static IFileSystem Get()
+        {
+            var items = new Dictionary<string, MockFileData>();
+
+            return new MockFileSystem();
         }
     }
 }

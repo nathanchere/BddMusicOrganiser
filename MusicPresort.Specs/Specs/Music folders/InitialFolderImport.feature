@@ -1,11 +1,25 @@
 ﻿Feature: Initial folder import
-	In order to know when an album was added to the catalog
-	As a thingy
-	I want to determine the import date from a music folder
+	In order to determine which folders are valid for processing
+	As a MusicFolderFactory (WTF do I put here?)
+	I want to verify that input directories exist
+	And that the folder name contains the import date
+
+Scenario: Folder exists
+	Given a folder path
+	And the folder path exists on disk
+	When the folder is imported
+	Then the result should not have a "not found" error
+
+Scenario: Folder doesn't exist
+	Given a folder path
+	And the folder path doesn't exist on disk
+	When the folder is imported
+	Then the result should have a "not found" error
 
 Scenario: Valid date
-	Given I have a full folder path
+	Given a folder path
 	And the folder name is in a valid format
+	And the folder path exists on disk
 	When I pre-process the folder
 	Then the result should have the date
 

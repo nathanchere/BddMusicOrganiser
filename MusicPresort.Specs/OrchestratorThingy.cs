@@ -43,35 +43,7 @@ namespace MusicPresort
 
             folder.Analysis = new AnalysisCache();
         }
-        
-        /// <summary>
-        /// Basic/shallow verification of folder suitability for processing
-        /// </summary>
-        public MusicFolder ImportFolder(string fullPath)
-        {
-            var result = new MusicFolder();
-
-            try
-            {                
-
-                if (string.IsNullOrEmpty(fullPath)) return null;
-                // If not folder exists on disk return null                
-
-                var folderName = Path.GetDirectoryName(fullPath);
-                var folderDate = new Date(folderName.Split(' ')[0]);
-                var folderCaption = folderName.Substring(folderName.Split(' ')[0].Length);
-
-
-                // enumerate files
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                // return null?
-                throw;
-            }            
-        }
+               
     }
 
     public class PreprocessResult
