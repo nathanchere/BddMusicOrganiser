@@ -89,7 +89,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.When("the folder is imported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("the result should not have a \"not found\" error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result should not have a \'Not Found\' error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -109,7 +109,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.When("the folder is imported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.Then("the result should have a \"not found\" error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result should have a \'Not Found\' error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

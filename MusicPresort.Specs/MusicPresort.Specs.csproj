@@ -74,6 +74,7 @@
     <Compile Include="AnalysisCache.cs" />
     <Compile Include="IFolderAnalyser.cs" />
     <Compile Include="IFolderProcessor.cs" />
+    <Compile Include="ImportedFolder.cs" />
     <Compile Include="IntegrationTests\IntegrationTests.cs" />
     <Compile Include="MusicFolderFactory.cs" />
     <Compile Include="Specs\FolderProcessor\TagConsistency.feature.cs">

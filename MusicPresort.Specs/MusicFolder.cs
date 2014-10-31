@@ -25,7 +25,7 @@ namespace MusicPresort
 
     public class ImportResult
     {
-        public MusicFolder Folder { get; set; }
+        public ImportedFolder Folder { get; set; }
 
         public ResultEnum Result { get; set; }
 

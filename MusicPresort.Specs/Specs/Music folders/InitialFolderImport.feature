@@ -8,13 +8,13 @@ Scenario: Folder exists
 	Given a folder path
 	And the folder path exists on disk
 	When the folder is imported
-	Then the result should not have a "not found" error
+	Then the result should not have a 'Not Found' error
 
 Scenario: Folder doesn't exist
 	Given a folder path
 	And the folder path doesn't exist on disk
 	When the folder is imported
-	Then the result should have a "not found" error
+	Then the result should have a 'Not Found' error
 
 Scenario: Valid date
 	Given a folder path
