@@ -20,7 +20,7 @@ Scenario: Valid date
 	Given a folder path
 	And the folder name is in a valid format
 	And the folder path exists on disk
-	When I pre-process the folder
+	When the folder is imported
 	Then the result should have the date
 
 Scenario: Invalid date

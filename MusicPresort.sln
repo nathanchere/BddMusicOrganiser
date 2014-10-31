@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5D8E4
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPresort.UtilTests", "MusicPresort.UtilTests\MusicPresort.UtilTests.csproj", "{8CD1F8BC-4AA0-4F41-BEA6-A69C72B84CA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{0CDF87B3-3DE7-4711-B562-E6AA583367F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CDF87B3-3DE7-4711-B562-E6AA583367F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CDF87B3-3DE7-4711-B562-E6AA583367F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD1F8BC-4AA0-4F41-BEA6-A69C72B84CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD1F8BC-4AA0-4F41-BEA6-A69C72B84CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD1F8BC-4AA0-4F41-BEA6-A69C72B84CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD1F8BC-4AA0-4F41-BEA6-A69C72B84CA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

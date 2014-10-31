@@ -34,7 +34,7 @@ namespace MusicPresort.Specs
         [Given(@"the folder name is in a valid format")]
         public void GivenTheFolderNameIsInAValidFormat()
         {
-            _path = "2010-01-30 (1977) Fleetwood.Mac.Rumours [vinyl rip]";
+            _path = "2010-01-30 " + _fixture.Create<string>();
         }
 
         [Given(@"the folder name is not in a valid format")]
