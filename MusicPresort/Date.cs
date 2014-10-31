@@ -90,27 +90,18 @@ namespace MusicPresort
 
         public static bool operator ==(Date date1, Date date2)
         {
-            if (date1 as object == null || date2 as object == null) return false;
-            
-            if (ReferenceEquals(date1, date2)) return true;
-            
-            if (date1.Year != date2.Year) return false;
-            if (date1.Month != date2.Month) return false;
-            if (date1.Day != date2.Day) return false;
-
-            return true;
+            return Equals(date1, date2);
         }
 
         public static bool operator !=(Date date1, Date date2)
         {
-            return !(date1 == date2);
+            return !Equals(date1, date2);
         }
 
         public static bool operator >(Date date1, Date date2)
         {
             if (date1 as object == null || date2 as object == null) return false;
-
-            if (ReferenceEquals(date1, date2)) return false;
+            if (Equals(date1, date2)) return false;            
 
             if (date2.Year > date1.Year) return true;
             if (date2.Year < date1.Year) return false;
@@ -127,8 +118,7 @@ namespace MusicPresort
         public static bool operator <(Date date1, Date date2)
         {
             if (date1 as object == null || date2 as object == null) return false;
-
-            if (ReferenceEquals(date1, date2)) return false;
+            if (Equals(date1, date2)) return false;
 
             if (date2.Year > date1.Year) return false;
             if (date2.Year < date1.Year) return true;
@@ -136,8 +126,8 @@ namespace MusicPresort
             if (date2.Month > date1.Month) return false;
             if (date2.Month < date1.Month) return true;
 
-            if (date2.Day > date1.Day) return false;
-            if (date2.Day < date1.Day) return true;
+            if (date2.Day > date1.Day) return true;
+            if (date2.Day < date1.Day) return false;
 
             return false;
         }
@@ -145,17 +135,13 @@ namespace MusicPresort
         public static bool operator <=(Date date1, Date date2)
         {
             if (date1 as object == null || date2 as object == null) return false;
-
-            if (ReferenceEquals(date1, date2)) return true;
-            return date1 == date2 || date1 < date2;
+            return Equals(date1, date2) || date1 < date2;
         }
 
         public static bool operator >=(Date date1, Date date2)
         {
             if (date1 as object == null || date2 as object == null) return false;
-            if (ReferenceEquals(date1, date2)) return true;
-
-            return date1 == date2 || date1 > date2;
+            return Equals(date1, date2) || date1 > date2;
         }
     }
 }
