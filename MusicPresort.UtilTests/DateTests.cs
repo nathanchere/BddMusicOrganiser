@@ -34,9 +34,9 @@ namespace MusicPresort.UtilTests
 
         [Theory]
         [InlineData(2010, 10, 5, 2010, 10, 5)]
-        [InlineData(2010, 10, 5, 2010, 10, 6)]
-        [InlineData(2010, 10, 5, 2010, 11, 5)]
-        [InlineData(2010, 10, 5, 2011, 10, 5)]
+        [InlineData(2010, 10, 6, 2010, 10, 5)]
+        [InlineData(2010, 11, 5, 2010, 10, 5)]
+        [InlineData(2011, 10, 5, 2010, 10, 5)]
         public void GreaterOrEqual_operator_returns_true(int year1, int month1, int day1, int year2, int month2, int day2)
         {
             var date1 = new Date(year1, month1, day1);
@@ -67,10 +67,10 @@ namespace MusicPresort.UtilTests
             Assert.True(date1 <= date2);
         }
 
-        [Theory]        
-        [InlineData(2010, 10, 5, 2010, 10, 6)]
-        [InlineData(2010, 10, 5, 2010, 11, 5)]
-        [InlineData(2010, 10, 5, 2011, 10, 5)]
+        [Theory]
+        [InlineData(2010, 10, 6, 2010, 10, 5)]
+        [InlineData(2010, 11, 5, 2010, 10, 5)]
+        [InlineData(2011, 10, 5, 2010, 10, 5)]
         public void LessOrEqual_operator_returns_false(int year1, int month1, int day1, int year2, int month2, int day2)
         {
             var date1 = new Date(year1, month1, day1);

@@ -109,8 +109,8 @@ namespace MusicPresort
             if (date2.Month > date1.Month) return false;
             if (date2.Month < date1.Month) return true;
 
-            if (date2.Day > date1.Day) return true;
-            if (date2.Day < date1.Day) return false;
+            if (date2.Day > date1.Day) return false;
+            if (date2.Day < date1.Day) return true;
 
             return false;
         }
