@@ -1,8 +1,9 @@
 ﻿Feature: Initial folder import
-	In order to determine which folders are valid for processing
+	In order to identify folders which are valid for processing
 	As a MusicFolderFactory (WTF do I put here?)
 	I want to verify that input directories exist
 	And that the folder name contains the import date
+	And detect if a folder has been analysed previously
 
 Scenario: Folder exists
 	Given a folder path
@@ -39,7 +40,7 @@ Scenario: Invalid format
 	Then the result should have no date
 	And the result should have an 'Invalid Folder Name' error
 
-Scenario: No analysis cache
+Scenario: No analysis cache present
 	Given a folder path
 	And the folder name is in a valid format
 	And the folder path exists on disk
@@ -47,7 +48,7 @@ Scenario: No analysis cache
 	Then the result should have no error
 	And the result should have no analysis cache
 
-Scenario: Analysis cache
+Scenario: Analysis cache present
 	Given a folder path
 	And the folder name is in a valid format
 	And the folder path exists on disk
