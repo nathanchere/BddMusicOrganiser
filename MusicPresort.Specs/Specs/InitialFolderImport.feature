@@ -38,3 +38,5 @@ Scenario: Invalid format
 	When the folder is imported
 	Then the result should have no date
 	And the result should have an 'Invalid Folder Name' error
+
+# TODO: Incude analysis cache if found
