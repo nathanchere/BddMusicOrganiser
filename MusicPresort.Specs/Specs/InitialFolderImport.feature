@@ -37,7 +37,4 @@ Scenario: Invalid format
 	And the folder path exists on disk
 	When the folder is imported
 	Then the result should have no date
-	# and the result should have an error "Invalid format"
-
-	# exists on disk
-	#doesn't exist
+	And the result should have an 'Invalid Folder Name' error

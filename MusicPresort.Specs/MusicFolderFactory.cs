@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MusicPresort
 {
     public class MusicFolderFactory
     {
         private readonly IFileSystem fs;
+        //private Regex validFolderName; 
 
         public MusicFolderFactory(IFileSystem fileSystem)
         {
             fs = fileSystem;
+            // TODO: init regex
         }
 
         /// <summary>
@@ -22,6 +25,14 @@ namespace MusicPresort
         {
             if (string.IsNullOrEmpty(fullPath)) return ImportResult.PathNotFound();            
             if (!fs.Directory.Exists(fullPath)) return ImportResult.PathNotFound();
+
+            //TODO: replace with regex
+            {
+                var fileName = fullPath.Split(fs.Path.DirectorySeparatorChar).Last();   
+                if(fileName.Substring(10,1) != " ") return ImportResult.InvalidFolderName();
+                var values = fileName.Split(' ')[0].Split('-');
+                if(values.Count() != 3)  return ImportResult.InvalidFolderName();
+            }
 
             var folder = new ImportedFolder();
             folder.FullPath = fullPath;

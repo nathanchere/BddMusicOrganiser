@@ -86,6 +86,12 @@ namespace MusicPresort.Specs
             Assert.Equal(ImportResult.ResultEnum.InvalidDate, _result.Result);
         }
 
+        [Then(@"the result should have an 'Invalid Folder Name' error")]
+        public void ThenTheResultShouldHaveAnInvalidFolderNameError()
+        {
+            Assert.Equal(ImportResult.ResultEnum.InvalidFolderName, _result.Result);
+        }
+
         [Then(@"the result should have the date")]
         public void ThenTheResultShouldHaveTheDate()
         {

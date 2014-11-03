@@ -77,30 +77,30 @@
     <Compile Include="ImportedFolder.cs" />
     <Compile Include="IntegrationTests\IntegrationTests.cs" />
     <Compile Include="MusicFolderFactory.cs" />
-    <Compile Include="Specs\FolderProcessor\TagConsistency.feature.cs">
+    <Compile Include="Specs\TODO\TagConsistency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TagConsistency.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\FolderProcessor\TagConsistency.Steps.cs" />
+    <Compile Include="Specs\TODO\TagConsistency.Steps.cs" />
     <Compile Include="DataFile.cs" />
-    <Compile Include="Specs\Music folders\OrchestratorThingy.feature.cs">
+    <Compile Include="Specs\TODO\OrchestratorThingy.feature.cs">
       <DependentUpon>OrchestratorThingy.feature</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Specs\Music folders\InitialFolderImport.Steps.cs" />
-    <Compile Include="Specs\Music folders\InitialFolderImport.feature.cs">
+    <Compile Include="Specs\InitialFolderImport.Steps.cs" />
+    <Compile Include="Specs\InitialFolderImport.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InitialFolderImport.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\Music folders\FolderAnalysis.feature.cs">
+    <Compile Include="Specs\FolderAnalysis.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FolderAnalysis.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\Music folders\FolderAnalysis.Steps.cs" />
+    <Compile Include="Specs\FolderAnalysis.Steps.cs" />
     <Compile Include="MusicFile.cs" />
     <Compile Include="MusicFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,19 +108,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Specs\Music folders\OrchestratorThingy.feature">
+    <None Include="Specs\TODO\OrchestratorThingy.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>OrchestratorThingy.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\Music folders\InitialFolderImport.feature">
+    <None Include="Specs\InitialFolderImport.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>InitialFolderImport.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\Music folders\FolderAnalysis.feature">
+    <None Include="Specs\FolderAnalysis.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FolderAnalysis.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\FolderProcessor\TagConsistency.feature">
+    <None Include="Specs\TODO\TagConsistency.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TagConsistency.feature.cs</LastGenOutput>
     </None>

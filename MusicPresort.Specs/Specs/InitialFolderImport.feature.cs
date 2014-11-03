@@ -178,6 +178,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("the folder is imported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
  testRunner.Then("the result should have no date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+ testRunner.And("the result should have an \'Invalid Folder Name\' error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
