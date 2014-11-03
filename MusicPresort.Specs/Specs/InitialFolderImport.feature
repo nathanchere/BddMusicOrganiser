@@ -39,4 +39,19 @@ Scenario: Invalid format
 	Then the result should have no date
 	And the result should have an 'Invalid Folder Name' error
 
-# TODO: Incude analysis cache if found
+Scenario: No analysis cache
+	Given a folder path
+	And the folder name is in a valid format
+	And the folder path exists on disk
+	When the folder is imported	
+	Then the result should have no error
+	And the result should have no analysis cache
+
+Scenario: Analysis cache
+	Given a folder path
+	And the folder name is in a valid format
+	And the folder path exists on disk
+	And the folder contains an analysis cache
+	When the folder is imported	
+	Then the result should have no error
+	And the result should have an analysis cache
