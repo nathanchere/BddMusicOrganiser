@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
@@ -45,16 +46,20 @@ namespace MusicPresort
 
             foreach (var file in GetFiles(fullPath))
             {
-                folder.Files.Add(file);
+                var shortFileName = file.Substring(fullPath.Length);
+                folder.Files.Add(shortFileName);
 
-                // TODO: determine if file, musicfile or cache
+                // Detect analysis cache if present
+                if (shortFileName.Split(Path.DirectorySeparatorChar).Last() == AnalysisCache.FileName)
+                {
+                    folder.Analysis = AnalysisCache.FromJson("");
+                }
             }            
 
             return new ImportResult
             {
                 Result = ImportResult.ResultEnum.Success,
-                Folder = folder,
-                // include analysis cache if it already exists
+                Folder = folder,                
             };
         }
 
