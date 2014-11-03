@@ -98,7 +98,6 @@ namespace MusicPresort.Specs
             Assert.Equal(ImportResult.ResultEnum.Success, _result.Result);
         }
 
-
         [Then(@"the result should have the date")]
         public void ThenTheResultShouldHaveTheDate()
         {
@@ -109,7 +108,19 @@ namespace MusicPresort.Specs
         public void ThenTheResultShouldHaveNoDate()
         {
             Assert.True(_result.Folder == null || _result.Folder.Date == null);
-        }        
+        }
+
+        [Then(@"the result should have no analysis cache")]
+        public void ThenTheResultShouldHaveNoAnalysisCache()
+        {
+            Assert.Null(_result.Folder.Analysis);
+        }
+
+        [Then(@"the result should have an analysis cache")]
+        public void ThenTheResultShouldHaveAnAnalysisCache()
+        {
+            Assert.NotNull(_result.Folder.Analysis);
+        }
         #endregion
     }
 }

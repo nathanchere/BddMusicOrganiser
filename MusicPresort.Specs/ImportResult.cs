@@ -22,6 +22,11 @@
             return new ImportResult { Result = ResultEnum.InvalidDate};
         }
 
+        public static ImportResult Success()
+        {
+            return new ImportResult { Result = ResultEnum.Success };
+        }
+
         public enum ResultEnum { 
             None,
             Success,
@@ -29,6 +34,6 @@
             PathNotFound,
             InvalidFolderName,
             InvalidDate,            
-        }
+        }        
     }
 }
