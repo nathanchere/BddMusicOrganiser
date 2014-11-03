@@ -4,6 +4,8 @@ namespace MusicPresort
 {
     public class AnalysisCache
     {
+        public const string FileName = @"analysis.cache.json";
+
         public AnalysisCache()
         {
             Files = new List<DataFile>();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using Ploeh.AutoFixture;
@@ -56,6 +57,13 @@ namespace MusicPresort.Specs
 
         [Given(@"the folder path doesn't exist on disk")]
         public void GivenTheFolderPathDoesnTExistOnDisk() { }
+
+        [Given(@"the folder contains an analysis cache")]
+        public void GivenTheFolderContainsAnAnalysisCache()
+        {
+            _fileSystem.AddFile(Path.Combine(_path,AnalysisCache.FileName), _fixture.Create<MockFileData>());
+        }
+
         #endregion
 
         #region When        

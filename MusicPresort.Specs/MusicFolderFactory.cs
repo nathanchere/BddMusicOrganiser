@@ -56,6 +56,7 @@ namespace MusicPresort
 
             return new ImportResult
             {
+                Result = ImportResult.ResultEnum.Success,
                 Folder = folder,
                 // include analysis cache if it already exists
             };
