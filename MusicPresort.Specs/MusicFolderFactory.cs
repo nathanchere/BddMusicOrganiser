@@ -10,12 +10,12 @@ namespace MusicPresort
     public class MusicFolderFactory
     {
         private readonly IFileSystem fs;
-        //private Regex validFolderName; 
+        private Regex validFolderName; 
 
         public MusicFolderFactory(IFileSystem fileSystem)
         {
             fs = fileSystem;
-            // TODO: init regex
+            validFolderName = new Regex(@"\d{4}-\d{2}-\d{2} .{1,}");
         }
 
         /// <summary>
@@ -25,33 +25,29 @@ namespace MusicPresort
         {
             if (string.IsNullOrEmpty(fullPath)) return ImportResult.PathNotFound();            
             if (!fs.Directory.Exists(fullPath)) return ImportResult.PathNotFound();
-
-            //TODO: replace with regex
-            {
-                var fileName = fullPath.Split(fs.Path.DirectorySeparatorChar).Last();   
-                if(fileName.Substring(10,1) != " ") return ImportResult.InvalidFolderName();
-                var values = fileName.Split(' ')[0].Split('-');
-                if(values.Count() != 3)  return ImportResult.InvalidFolderName();
+            
+            var fileName = fullPath.Split(fs.Path.DirectorySeparatorChar).Last();
+            if (!validFolderName.IsMatch(fileName)) return ImportResult.InvalidFolderName();
+            
+            Date date;            
+            try { 
+                date = new Date(fileName.Split(' ')[0]); 
+            }
+            catch (Exception ex) { 
+                return ImportResult.InvalidDate(); 
             }
 
-            var folder = new ImportedFolder();
-            folder.FullPath = fullPath;
-            folder.FileName = fullPath.Split(fs.Path.DirectorySeparatorChar).Last();
-
-            try
-            {
-                folder.Date = new Date(folder.FileName.Split(' ')[0]);
-            }
-            catch(Exception ex)
-            {
-                return ImportResult.InvalidDate();
-            }
-
-            //var folderCaption = folderName.Substring(folderName.Split(' ')[0].Length);
+            var folder = new ImportedFolder {
+                FullPath = fullPath,
+                FileName = fileName,
+                Date = date
+            };            
 
             foreach (var file in GetFiles(fullPath))
             {
                 folder.Files.Add(file);
+
+                // TODO: determine if file, musicfile or cache
             }            
 
             return new ImportResult
