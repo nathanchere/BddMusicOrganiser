@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MusicPresort
 {
@@ -15,12 +16,12 @@ namespace MusicPresort
 
         private AnalysisCache()
         {
-            Files = new List<DataFile>();
-            Errors = new List<object>();
+            throw new NotImplementedException();
         }
 
         public AnalysisCache(string rootPath)
         {
+            RootPath = rootPath;
             Files = new List<DataFile>();
             Errors = new List<object>();
         }

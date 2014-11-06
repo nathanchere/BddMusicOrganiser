@@ -11,6 +11,7 @@ Scenario: Analysis cache created
 	And the music folder hasn't been processed
 	When I analyse the folder
 	Then the music folder should cache the analysis results
+	And the cache should be written to disk
 
 Scenario: Analysis cache contains list of files in folder
 	Given I have a music folder
@@ -18,9 +19,14 @@ Scenario: Analysis cache contains list of files in folder
 	When I analyse the folder
 	Then analysis cache should list the files in the music folder
 
-Scenario: Analysis cache contains list of files in folderxx
+Scenario: Analysis cache contains root path
 	Given I have a music folder
 	And the music folder hasn't been processed
 	When I analyse the folder
 	Then analysis cache should list the files in the music folder
 
+Scenario: Analysis cache stores all file paths relative to root path
+Given I have a music folder
+	And the music folder hasn't been processed
+	When I analyse the folder
+	Then analysis cache should list the files in the music folder

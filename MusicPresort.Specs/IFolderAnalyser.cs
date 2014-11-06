@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Abstractions;
 using System.Linq;
 using MusicPresort.Specs;
 
@@ -12,6 +13,8 @@ namespace MusicPresort
 
     public class FolderAnalyser : IFolderAnalyser
     {
+        private readonly IFileSystem _fileSystem;
+
         private readonly Func<MusicFile, bool> IsArtistMissing;
         private readonly Func<MusicFile, bool> IsAlbumMissing;
         private readonly Func<MusicFile, bool> IsTrackNumberMissing;
@@ -21,7 +24,7 @@ namespace MusicPresort
 
         public AnalysisCache Analyse(MusicFolder folder)
         {
-            var result = new AnalysisCache();
+            var result = new AnalysisCache(folder.FullPath);
             
             foreach (var file in folder.Files)
             {
@@ -55,8 +58,10 @@ namespace MusicPresort
             return true;
         }
 
-        public FolderAnalyser()
+        public FolderAnalyser(IFileSystem fileSystem)
         {
+            _fileSystem = fileSystem;
+
             IsArtistMissing = f => string.IsNullOrEmpty(f.ArtistName);
             IsAlbumMissing = f => string.IsNullOrEmpty(f.AlbumTitle);
             IsTrackNumberMissing = f => !f.TrackNumber.HasValue;

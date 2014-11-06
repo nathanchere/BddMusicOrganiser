@@ -18,7 +18,7 @@ namespace MusicPresort
         private IFolderProcessor _processor;
 
         public OrchestratorThingy() : this(
-            new FolderProcessor(), new FolderAnalyser()){}
+            new FolderProcessor(), new FolderAnalyser(null)){}
 
         public OrchestratorThingy(IFolderProcessor processor, IFolderAnalyser analyser)
         {
@@ -41,7 +41,7 @@ namespace MusicPresort
             else
                 GoodFolders.Add(folder);
 
-            folder.Analysis = new AnalysisCache();
+            folder.Analysis = new AnalysisCache(null);
         }
                
     }
