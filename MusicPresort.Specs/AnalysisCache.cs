@@ -5,8 +5,21 @@ namespace MusicPresort
     public class AnalysisCache
     {
         public const string FileName = @"analysis.cache.json";
-       
-        public AnalysisCache()
+
+        /// <summary>
+        /// Keeps track of the path where the AnalysisCache is located on disk.
+        /// All other files within are stored relative to this root path.
+        /// Can be used to loosely verify the same device that ran the original analysis.
+        /// </summary>
+        public string RootPath { get; private set; }
+
+        private AnalysisCache()
+        {
+            Files = new List<DataFile>();
+            Errors = new List<object>();
+        }
+
+        public AnalysisCache(string rootPath)
         {
             Files = new List<DataFile>();
             Errors = new List<object>();

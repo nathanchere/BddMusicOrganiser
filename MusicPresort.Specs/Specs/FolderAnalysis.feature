@@ -6,7 +6,19 @@
 
 # assumes pre-import is already done and passed on these examples
 
+Scenario: Analysis cache created
+	Given I have a music folder
+	And the music folder hasn't been processed
+	When I analyse the folder
+	Then the music folder should cache the analysis results
+
 Scenario: Analysis cache contains list of files in folder
+	Given I have a music folder
+	And the music folder hasn't been processed
+	When I analyse the folder
+	Then analysis cache should list the files in the music folder
+
+Scenario: Analysis cache contains list of files in folderxx
 	Given I have a music folder
 	And the music folder hasn't been processed
 	When I analyse the folder

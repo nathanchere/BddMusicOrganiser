@@ -73,6 +73,13 @@ namespace MusicPresort.Specs
         #endregion
 
         #region Then       
+        
+        [Then(@"the music folder should cache the analysis results")]
+        public void ThenTheMusicFolderShouldCacheTheAnalysisResults()
+        {
+            Assert.NotNull(_folder.Analysis);
+        }
+
         [Then(@"analysis cache should list the files in the music folder")]
         public void ThenAnalysisCacheShouldListTheFilesInTheMusicFolder()
         {            

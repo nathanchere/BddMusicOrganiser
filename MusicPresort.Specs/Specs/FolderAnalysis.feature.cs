@@ -76,10 +76,10 @@ namespace MusicPresort.Specs
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
-        [Xunit.TraitAttribute("Description", "Analysis cache contains list of files in folder")]
-        public virtual void AnalysisCacheContainsListOfFilesInFolder()
+        [Xunit.TraitAttribute("Description", "Analysis cache created")]
+        public virtual void AnalysisCacheCreated()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analysis cache contains list of files in folder", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analysis cache created", ((string[])(null)));
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line 10
@@ -89,6 +89,46 @@ this.ScenarioSetup(scenarioInfo);
 #line 12
  testRunner.When("I analyse the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
+ testRunner.Then("the music folder should cache the analysis results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
+        [Xunit.TraitAttribute("Description", "Analysis cache contains list of files in folder")]
+        public virtual void AnalysisCacheContainsListOfFilesInFolder()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analysis cache contains list of files in folder", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.And("the music folder hasn\'t been processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.When("I analyse the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then("analysis cache should list the files in the music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Folder analysis")]
+        [Xunit.TraitAttribute("Description", "Analysis cache contains list of files in folderxx")]
+        public virtual void AnalysisCacheContainsListOfFilesInFolderxx()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analysis cache contains list of files in folderxx", ((string[])(null)));
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+ testRunner.And("the music folder hasn\'t been processed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.When("I analyse the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
  testRunner.Then("analysis cache should list the files in the music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
