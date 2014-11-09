@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MusicPresort
 {
@@ -22,5 +23,11 @@ namespace MusicPresort
         /// Result of prior processing (not import)
         /// </summary>
         public AnalysisCache Analysis { get; set; }
+
+        public string AnalysisCachePath()
+        {
+            if (string.IsNullOrEmpty(FullPath)) throw new InvalidOperationException("MusicFolder has no path set");
+            return Path.Combine(FullPath, AnalysisCache.FileName);
+        }
     }
 }

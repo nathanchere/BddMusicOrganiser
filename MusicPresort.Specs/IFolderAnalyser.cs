@@ -2,6 +2,7 @@
 using System.IO.Abstractions;
 using System.Linq;
 using MusicPresort.Specs;
+using ServiceStack.Text;
 
 namespace MusicPresort
 {
@@ -32,6 +33,9 @@ namespace MusicPresort
             }
 
             folder.Analysis = result;
+
+            _fileSystem.File.WriteAllText(folder.AnalysisCachePath(), JsonSerializer.SerializeToString(result));
+
             return result;
         }
 
