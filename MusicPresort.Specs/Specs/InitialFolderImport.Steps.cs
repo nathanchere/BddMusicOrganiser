@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using Ploeh.AutoFixture;
+using ServiceStack.Text;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -61,7 +62,9 @@ namespace MusicPresort.Specs
         [Given(@"the folder contains an analysis cache")]
         public void GivenTheFolderContainsAnAnalysisCache()
         {
-            _fileSystem.AddFile(Path.Combine(_path,AnalysisCache.FileName), _fixture.Create<MockFileData>());
+            var cache = _fixture.Create<AnalysisCache>();
+            var text = JsonSerializer.SerializeToString(cache);
+            _fileSystem.AddFile(Path.Combine(_path,AnalysisCache.FileName), new MockFileData(text));
         }
 
         #endregion

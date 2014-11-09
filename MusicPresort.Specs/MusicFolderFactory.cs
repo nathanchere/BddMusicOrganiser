@@ -52,7 +52,8 @@ namespace MusicPresort
                 // Detect analysis cache if present
                 if (shortFileName.Split(Path.DirectorySeparatorChar).Last() == AnalysisCache.FileName)
                 {
-                    folder.Analysis = AnalysisCache.FromJson("");
+                    var json = fs.File.ReadAllText(file);
+                    folder.Analysis = AnalysisCache.FromJson(json);
                 }
             }            
 
