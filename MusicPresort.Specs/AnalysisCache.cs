@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ServiceStack.Text;
 
 namespace MusicPresort
 {
@@ -16,7 +17,7 @@ namespace MusicPresort
 
         private AnalysisCache()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("No constructor support");
         }
 
         public AnalysisCache(string rootPath)
@@ -28,7 +29,7 @@ namespace MusicPresort
 
         public static AnalysisCache FromJson(string json)
         {
-            return new AnalysisCache();
+            return JsonSerializer.DeserializeFromString<AnalysisCache>(json);
         }
 
         public IList<object> Errors { get; set; }
