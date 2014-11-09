@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
+using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
 using Moq;
 using Ploeh.AutoFixture;
@@ -18,14 +19,14 @@ namespace MusicPresort.Specs
         {
             _fixture = new Fixture();
 
-            _fileSystem = new Mock<IFileSystem>();
-            _analyser = new FolderAnalyser(_fileSystem.Object);            
+            _fileSystem = new MockFileSystem();
+            _analyser = new FolderAnalyser(_fileSystem);            
         }
 
         private Fixture _fixture;        
         private readonly IFolderAnalyser _analyser;
         private MusicFolder _folder;
-        private Mock<IFileSystem> _fileSystem;
+        private readonly IFileSystem _fileSystem;
 
         #region Helpers
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
@@ -99,7 +100,8 @@ namespace MusicPresort.Specs
         public void ThenTheCacheShouldBeWrittenToDisk()
         {
             var expectedPath = Path.Combine(_folder.Analysis.RootPath, AnalysisCache.FileName);
-            _fileSystem.Verify(x=>_fileSystem.Object.File.WriteAllText(expectedPath, It.IsAny<string>()), Times.Exactly(1));
+            
+            Assert.True(_fileSystem.File.Exists(_folder.AnalysisCachePath()));
         }
 
         #endregion
