@@ -1,0 +1,10 @@
+﻿MusicFolder
+
+Indicates a folder somewhere on disk
+
+To be valid for analysis it should:
+* have an import date in the root folder's file name
+
+To be valid for processing it should have an analysis with:
+* music files
+* tag consistency

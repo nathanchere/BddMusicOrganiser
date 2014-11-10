@@ -131,7 +131,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 25
  testRunner.When("I analyse the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
- testRunner.Then("analysis cache should list the files in the music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("analysis cache should contain the root path of the music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -151,7 +151,7 @@ testRunner.Given("I have a music folder", ((string)(null)), ((TechTalk.SpecFlow.
 #line 31
  testRunner.When("I analyse the folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 32
- testRunner.Then("analysis cache should list the files in the music folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("analysis cache should list the files relative to the root path", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

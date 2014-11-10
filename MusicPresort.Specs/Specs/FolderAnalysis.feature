@@ -23,10 +23,10 @@ Scenario: Analysis cache contains root path
 	Given I have a music folder
 	And the music folder hasn't been processed
 	When I analyse the folder
-	Then analysis cache should list the files in the music folder
+	Then analysis cache should contain the root path of the music folder
 
 Scenario: Analysis cache stores all file paths relative to root path
 Given I have a music folder
 	And the music folder hasn't been processed
 	When I analyse the folder
-	Then analysis cache should list the files in the music folder
+	Then analysis cache should list the files relative to the root path

@@ -79,7 +79,19 @@ namespace MusicPresort.Specs
         #endregion
 
         #region Then       
-        
+        [Then(@"analysis cache should list the files relative to the root path")]
+        public void ThenAnalysisCacheShouldListTheFilesRelativeToTheRootPath()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"analysis cache should contain the root path of the music folder")]
+        public void ThenAnalysisCacheShouldContainTheRootPathOfTheMusicFolder()
+        {
+            Assert.Equal(_folder.FullPath, _folder.Analysis.RootPath);
+        }
+
+
         [Then(@"the music folder should cache the analysis results")]
         public void ThenTheMusicFolderShouldCacheTheAnalysisResults()
         {
