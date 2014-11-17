@@ -19,6 +19,8 @@ namespace MusicPresort
         public string FileName { get; set; }
         public Date Date { get; set; }
 
+        public MusicFolderStatusEnum Status { get; set; }
+
         /// <summary>
         /// Result of prior processing (not import)
         /// </summary>
@@ -29,5 +31,14 @@ namespace MusicPresort
             if (string.IsNullOrEmpty(FullPath)) throw new InvalidOperationException("MusicFolder has no path set");
             return Path.Combine(FullPath, AnalysisCache.FileName);
         }
+    }
+
+    public enum MusicFolderStatusEnum
+    {
+        Unknown,
+        NotAnalysed,
+        AnalysedWithErrors,
+        ReadyToProcess,
+        Processed,
     }
 }

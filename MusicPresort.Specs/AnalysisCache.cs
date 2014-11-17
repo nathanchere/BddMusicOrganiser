@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ServiceStack.Text;
 
 namespace MusicPresort
@@ -34,5 +35,10 @@ namespace MusicPresort
 
         public IList<object> Errors { get; set; }
         public IList<DataFile> Files { get; set; }
+
+        public bool IsValid
+        {
+            get { return Errors != null && !Errors.Any(); }
+        }
     }
 }
