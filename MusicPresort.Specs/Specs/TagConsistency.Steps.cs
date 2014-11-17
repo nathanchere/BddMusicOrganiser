@@ -127,16 +127,16 @@ namespace MusicPresort.Specs.FolderProcessor
         #endregion
 
         #region Then
-        [Then(@"the folder analysis status should be ""(.*)""")]
-        public void ThenTheFolderAnalysisStatusShouldBe(string p0)
+        [Then(@"the folder analysis status should be ""Not Ready""")]
+        public void ThenTheFolderAnalysisStatusShouldBeNotReady()
         {
-            ScenarioContext.Current.Pending();
+            Assert.False(_folder.Analysis.IsValid);
         }
 
         [Then(@"the folder analysis should contain an error ""(.*)""")]
         public void ThenTheFolderAnalysisShouldContainAnError(string p0)
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(_folder.Analysis.Errors.Any(x=>x == p0));
         }
         #endregion
     }

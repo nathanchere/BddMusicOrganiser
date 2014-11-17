@@ -82,12 +82,12 @@
     <Compile Include="ImportResult.cs" />
     <Compile Include="IntegrationTests\IntegrationTests.cs" />
     <Compile Include="MusicFolderFactory.cs" />
-    <Compile Include="Specs\TODO\TagConsistency.feature.cs">
+    <Compile Include="Specs\TagConsistency.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TagConsistency.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\TODO\TagConsistency.Steps.cs" />
+    <Compile Include="Specs\TagConsistency.Steps.cs" />
     <Compile Include="DataFile.cs" />
     <Compile Include="Specs\TODO\OrchestratorThingy.feature.cs">
       <DependentUpon>OrchestratorThingy.feature</DependentUpon>
@@ -125,7 +125,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FolderAnalysis.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\TODO\TagConsistency.feature">
+    <None Include="Specs\TagConsistency.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TagConsistency.feature.cs</LastGenOutput>
     </None>
