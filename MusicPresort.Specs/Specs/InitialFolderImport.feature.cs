@@ -78,10 +78,10 @@ And detect if a folder has been analysed previously", ProgrammingLanguage.CSharp
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
-        [Xunit.TraitAttribute("Description", "Folder exists")]
-        public virtual void FolderExists()
+        [Xunit.TraitAttribute("Description", "Not \"Not found\" error when imported folder exists")]
+        public virtual void NotNotFoundErrorWhenImportedFolderExists()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder exists", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Not \"Not found\" error when imported folder exists", ((string[])(null)));
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
@@ -98,10 +98,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
-        [Xunit.TraitAttribute("Description", "Folder doesn\'t exist")]
-        public virtual void FolderDoesnTExist()
+        [Xunit.TraitAttribute("Description", "\"Not found\" error when imported folder doesn\'t exist")]
+        public virtual void NotFoundErrorWhenImportedFolderDoesnTExist()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder doesn\'t exist", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("\"Not found\" error when imported folder doesn\'t exist", ((string[])(null)));
 #line 14
 this.ScenarioSetup(scenarioInfo);
 #line 15
@@ -118,10 +118,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
-        [Xunit.TraitAttribute("Description", "Valid date")]
-        public virtual void ValidDate()
+        [Xunit.TraitAttribute("Description", "Folder with valid date")]
+        public virtual void FolderWithValidDate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valid date", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder with valid date", ((string[])(null)));
 #line 20
 this.ScenarioSetup(scenarioInfo);
 #line 21
@@ -140,10 +140,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
-        [Xunit.TraitAttribute("Description", "Invalid date")]
-        public virtual void InvalidDate()
+        [Xunit.TraitAttribute("Description", "\"Invalid date\" error when imported folder has invalid date")]
+        public virtual void InvalidDateErrorWhenImportedFolderHasInvalidDate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid date", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("\"Invalid date\" error when imported folder has invalid date", ((string[])(null)));
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 28
@@ -164,10 +164,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Initial folder import")]
-        [Xunit.TraitAttribute("Description", "Invalid format")]
-        public virtual void InvalidFormat()
+        [Xunit.TraitAttribute("Description", "\"Invalid format\" error when imported folder name is not in valid format")]
+        public virtual void InvalidFormatErrorWhenImportedFolderNameIsNotInValidFormat()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid format", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("\"Invalid format\" error when imported folder name is not in valid format", ((string[])(null)));
 #line 35
 this.ScenarioSetup(scenarioInfo);
 #line 36

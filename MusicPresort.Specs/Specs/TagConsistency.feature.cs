@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace MusicPresort.Specs.TODO
+namespace MusicPresort.Specs
 {
     using TechTalk.SpecFlow;
     

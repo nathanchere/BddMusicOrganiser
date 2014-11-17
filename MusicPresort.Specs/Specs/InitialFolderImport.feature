@@ -5,26 +5,26 @@
 	And that the folder name contains the import date
 	And detect if a folder has been analysed previously
 
-Scenario: Folder exists
+Scenario: Not "Not found" error when imported folder exists
 	Given a folder path
 	And the folder path exists on disk
 	When the folder is imported
 	Then the result should not have a 'Not Found' error
 
-Scenario: Folder doesn't exist
+Scenario: "Not found" error when imported folder doesn't exist
 	Given a folder path
 	And the folder path doesn't exist on disk
 	When the folder is imported
 	Then the result should have a 'Not Found' error
 
-Scenario: Valid date
+Scenario: Folder with valid date
 	Given a folder path
 	And the folder name is in a valid format
 	And the folder path exists on disk
 	When the folder is imported
 	Then the result should have the date
 
-Scenario: Invalid date
+Scenario: "Invalid date" error when imported folder has invalid date
 	Given a folder path
 	And the folder name is in a valid format but with an invalid date
 	And the folder path exists on disk
@@ -32,7 +32,7 @@ Scenario: Invalid date
 	Then the result should have no date
 	And the result should have an 'Invalid Date' error
 
-Scenario: Invalid format
+Scenario: "Invalid format" error when imported folder name is not in valid format
 	Given a folder path
 	And the folder name is not in a valid format
 	And the folder path exists on disk

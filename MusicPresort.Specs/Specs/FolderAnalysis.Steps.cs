@@ -26,7 +26,8 @@ namespace MusicPresort.Specs
         private Fixture _fixture;        
         private readonly IFolderAnalyser _analyser;
         private MusicFolder _folder;
-        private readonly IFileSystem _fileSystem;
+        private readonly MockFileSystem _fileSystem;
+        private string _folderPath;
 
         #region Helpers
         private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
@@ -61,6 +62,8 @@ namespace MusicPresort.Specs
         public void GivenIHaveAMusicFolder()
         {
             _folder = _fixture.Create<MusicFolder>();
+            _folderPath = string.Format(@"C:\{1}\{0}", _folder.FullPath, _fixture.Create<string>());
+            _folder.FullPath = _folderPath;
         }
 
         [Given(@"the music folder hasn't been processed")]
@@ -68,6 +71,16 @@ namespace MusicPresort.Specs
         {            
             _folder.Analysis = null;
         }
+
+        [Given(@"the target folder on disk contains specific files")]
+        public void GivenTheMusicFolderContainsSpecificFiles()
+        {
+            foreach(var file in _fixture.CreateMany<string>(_folderPath + Path.DirectorySeparatorChar, 5))
+            {
+                _fileSystem.AddFile(file, new MockFileData(_fixture.Create<string>()));          
+            }            
+        }
+
         #endregion
 
         #region When
@@ -79,26 +92,29 @@ namespace MusicPresort.Specs
         #endregion
 
         #region Then       
-        [Then(@"analysis cache should list the files relative to the root path")]
-        public void ThenAnalysisCacheShouldListTheFilesRelativeToTheRootPath()
+        [Then(@"the analysis should list the specific files relative to the root path")]
+        public void ThenAnalysisCacheShouldListTheSpecificFilesRelativeToTheRootPath()
         {
-            ScenarioContext.Current.Pending();
+            foreach (var file in _fileSystem.AllFiles)
+            {
+                
+            }
         }
 
-        [Then(@"analysis cache should contain the root path of the music folder")]
+        [Then(@"the analysis should contain the root path of the music folder")]
         public void ThenAnalysisCacheShouldContainTheRootPathOfTheMusicFolder()
         {
             Assert.Equal(_folder.FullPath, _folder.Analysis.RootPath);
         }
 
 
-        [Then(@"the music folder should cache the analysis results")]
+        [Then(@"the music folder should contain the analysis results")]
         public void ThenTheMusicFolderShouldCacheTheAnalysisResults()
         {
             Assert.NotNull(_folder.Analysis);
         }
 
-        [Then(@"analysis cache should list the files in the music folder")]
+        [Then(@"the analysis should list the files in the music folder")]
         public void ThenAnalysisCacheShouldListTheFilesInTheMusicFolder()
         {            
             Assert.Equal(_folder.Analysis.Files.Count, _folder.Files.Count);

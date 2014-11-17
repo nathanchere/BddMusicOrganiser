@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnalysisCache.cs" />
+    <Content Include="Definitions\Definitions.txt" />
     <Compile Include="IFolderAnalyser.cs" />
     <Compile Include="IFolderProcessor.cs" />
     <Compile Include="ImportedFolder.cs" />
