@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
 using Ploeh.AutoFixture;
 using TechTalk.SpecFlow;
@@ -9,12 +10,18 @@ namespace MusicPresort.Specs.FolderProcessor
     [Binding, Scope(Feature = "Tag consistency")]
     class TagConsistencySteps
     {
-        private readonly OrchestratorThingy _orchestratorThingy;
+        private Fixture _fixture;
+        private readonly IFolderAnalyser _analyser;
         private MusicFolder _folder;
+        private readonly MockFileSystem _fileSystem;
+        private string _folderPath;
 
         public TagConsistencySteps()
         {
-            _orchestratorThingy = new OrchestratorThingy();
+            _fixture = new Fixture();
+
+            _fileSystem = new MockFileSystem();
+            _analyser = new FolderAnalyser(_fileSystem);
         }
 
         #region Helpers
@@ -112,10 +119,10 @@ namespace MusicPresort.Specs.FolderProcessor
         #endregion
 
         #region When
-        [When(@"I process the folder")]
-        public void WhenIProcessTheFolder()
+        [When(@"I analyse the folder")]
+        public void WhenIAnalyseTheFolder()
         {
-            _orchestratorThingy.ProcessFolder(_folder);
+            _analyser.Analyse(_folder);
         }
         #endregion
 

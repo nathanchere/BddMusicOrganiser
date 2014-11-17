@@ -10,7 +10,7 @@
 Scenario: Mixed artist names
 	Given I have a music folder
 	And the folder has MP3s with mixed artist names
-	When I process the folder
+	When I analyse the folder
 	Then the folder should be filtered out
 
 Scenario: Mixed album titles
