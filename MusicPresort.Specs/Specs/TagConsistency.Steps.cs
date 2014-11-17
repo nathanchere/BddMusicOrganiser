@@ -127,11 +127,17 @@ namespace MusicPresort.Specs.FolderProcessor
         #endregion
 
         #region Then
-        [Then(@"the folder should be filtered out")]
-        public void ThenTheFolderShouldBeFilteredOut()
+        [Then(@"the folder analysis status should be ""(.*)""")]
+        public void ThenTheFolderAnalysisStatusShouldBe(string p0)
         {
-            Assert.Contains(_folder, _orchestratorThingy.BadFolders);
-        }        
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"the folder analysis should contain an error ""(.*)""")]
+        public void ThenTheFolderAnalysisShouldContainAnError(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
         #endregion
     }
 }
