@@ -63,10 +63,13 @@ Scenario: Incomplete sequence of track numbers
 	Then the folder analysis status should be "Not Ready"
 	And the folder analysis should contain an error "InvalidTrackNumberSequence"
 
-@ignore
 Scenario: No tags
-Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Missing ID3 tags"
+	Given I have a music folder
+	And the folder has MP3s with an incomplete sequence of track numbers
+	When I analyse the folder
+	Then the folder analysis status should be "Not Ready"
+	And the folder analysis should contain an error "MissingTags"
+	
 
 Scenario: No MP3s
 	Given I have a music folder

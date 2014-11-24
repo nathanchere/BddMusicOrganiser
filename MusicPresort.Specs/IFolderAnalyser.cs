@@ -25,6 +25,7 @@ namespace MusicPresort
         MissingTrackTitles,
         MixedArtistNames,
         MixedAlbumTitles,
+        MissingTags,
     }
 
     public class FolderAnalyser : IFolderAnalyser
@@ -61,6 +62,12 @@ namespace MusicPresort
 
         public IEnumerable<AnalysisError> GetErrors(MusicFolder folder)
         {
+            if(folder.Files.Any(f=>f.Tag == null))
+            {
+                yield return AnalysisError.MissingTags;
+                yield break;
+            }
+
             if (!folder.Files.Any()) yield return AnalysisError.NoMp3sFound;
 
             if (folder.Files.Any(IsArtistMissing)) yield return AnalysisError.MissingArtistNames;
@@ -75,30 +82,30 @@ namespace MusicPresort
 
             if (IsTrackNumberSequenceIncomplete(folder)) yield return AnalysisError.InvalidTrackNumberSequence;
 
-            if (folder.Files.Any(x => x.ArtistName != folder.Files[0].ArtistName)) yield return AnalysisError.MixedArtistNames;
+            if (folder.Files.Any(x => x.Tag.ArtistName != folder.Files[0].Tag.ArtistName)) yield return AnalysisError.MixedArtistNames;
 
-            if (folder.Files.Any(x => x.AlbumTitle != folder.Files[0].AlbumTitle)) yield return AnalysisError.MixedAlbumTitles;            
+            if (folder.Files.Any(x => x.Tag.AlbumTitle != folder.Files[0].Tag.AlbumTitle)) yield return AnalysisError.MixedAlbumTitles;            
         }
 
         public FolderAnalyser(IFileSystem fileSystem)
         {
             _fileSystem = fileSystem;
 
-            IsArtistMissing = f => string.IsNullOrEmpty(f.ArtistName);
-            IsAlbumMissing = f => string.IsNullOrEmpty(f.AlbumTitle);
-            IsTrackNumberMissing = f => !f.TrackNumber.HasValue;
-            IsTrackNumberInvalid = f => !f.TrackNumber.HasValue || f.TrackNumber.Value <= 0;
+            IsArtistMissing = f => string.IsNullOrEmpty(f.Tag.ArtistName);
+            IsAlbumMissing = f => string.IsNullOrEmpty(f.Tag.AlbumTitle);
+            IsTrackNumberMissing = f => !f.Tag.TrackNumber.HasValue;
+            IsTrackNumberInvalid = f => !f.Tag.TrackNumber.HasValue || f.Tag.TrackNumber.Value <= 0;
             IsTrackNumberSequenceIncomplete = f =>
             {
                 int i = 1;
-                foreach (var file in f.Files.OrderBy(x => x.TrackNumber))
+                foreach (var file in f.Files.OrderBy(x => x.Tag.TrackNumber))
                 {
-                    if (file.TrackNumber != i) return true;
+                    if (file.Tag.TrackNumber != i) return true;
                     i++;
                 }
                 return false;
             };
-            IsTrackNameMissing = f => string.IsNullOrWhiteSpace(f.TrackTitle);
+            IsTrackNameMissing = f => string.IsNullOrWhiteSpace(f.Tag.TrackTitle);
         }
     }
 }

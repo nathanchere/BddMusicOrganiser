@@ -30,13 +30,17 @@ namespace MusicPresort.Specs
             _folder.Files.Add(
                 new MusicFile
                 {
-                    ArtistName = artistName,
-                    AlbumTitle = albumTitle,
-                    TrackTitle = trackTitle,
-                    TrackNumber = trackNumber
+                    Tag = new Id3Tag
+                    {
+                        ArtistName = artistName,
+                        AlbumTitle = albumTitle,
+                        TrackTitle = trackTitle,
+                        TrackNumber = trackNumber
+                    }
                 }
             );
         }
+
         #endregion
 
         #region Given

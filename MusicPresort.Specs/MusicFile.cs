@@ -10,6 +10,11 @@ namespace MusicPresort
         /// </summary>
         public string Path { get; set; }
 
+        public Id3Tag Tag { get; set; }        
+    }
+
+    public class Id3Tag
+    {
         public string ArtistName { get; set; }
         public string AlbumTitle { get; set; }
         public string TrackTitle { get; set; }
@@ -44,11 +49,15 @@ namespace MusicPresort
             var albumTitle = "Album Number " + counter;
             for (int i = 1; i < rnd.Next(3, 10); ++i)
             {
-                Files.Add(new MusicFile{
-                    ArtistName = artistName,
-                    AlbumTitle = albumTitle,
-                    TrackNumber = i,
-                    TrackTitle = "Track " + i,
+                Files.Add(new MusicFile
+                {
+                    Tag = new Id3Tag
+                    {
+                        ArtistName = artistName,
+                        AlbumTitle = albumTitle,
+                        TrackNumber = i,
+                        TrackTitle = "Track " + i,
+                    }
                 });
             }
         }
