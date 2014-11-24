@@ -12,7 +12,7 @@ Scenario: Mixed artist names
 	And the folder has MP3s with mixed artist names
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Mixed artist names"
+	And the folder analysis should contain an error "MixedArtistNames"
 
 Scenario: Mixed album titles
 	Given I have a music folder
@@ -26,7 +26,7 @@ Scenario: Missing artist names
 	And the folder has MP3s with missing artist names
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "MixedArtistNames"
+	And the folder analysis should contain an error "MissingArtistNames"
 
 Scenario: Missing album titles
 	Given I have a music folder

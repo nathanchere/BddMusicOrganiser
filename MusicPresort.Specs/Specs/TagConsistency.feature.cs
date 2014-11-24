@@ -91,7 +91,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 14
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 15
- testRunner.And("the folder analysis should contain an error \"Mixed artist names\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MixedArtistNames\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -135,7 +135,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 29
- testRunner.And("the folder analysis should contain an error \"MixedArtistNames\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MissingArtistNames\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
