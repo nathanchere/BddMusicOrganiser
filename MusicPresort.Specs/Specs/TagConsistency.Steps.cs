@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO.Abstractions.TestingHelpers;
+﻿using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
 using Ploeh.AutoFixture;
 using TechTalk.SpecFlow;
 using Xunit;
 
-namespace MusicPresort.Specs.FolderProcessor
+namespace MusicPresort.Specs
 {
     [Binding, Scope(Feature = "Tag consistency")]
     class TagConsistencySteps

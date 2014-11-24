@@ -18,39 +18,18 @@ namespace MusicPresort.Specs
         public FolderStatus()
         {
             _fixture = new Fixture();
-
-            _fileSystem = new MockFileSystem();
-            _analyser = new FolderAnalyser(_fileSystem);            
         }
 
-        private Fixture _fixture;        
-        private readonly IFolderAnalyser _analyser;
+        private Fixture _fixture;     
         private MusicFolder _folder;
-        private readonly MockFileSystem _fileSystem;
-        private string _folderPath;
-
-        #region Helpers
-        private void AddFile(string artistName, string albumTitle, string trackTitle, int? trackNumber)
-        {
-            throw new NotImplementedException();
-            //_folder._files.Add(
-            //    new MusicFile{
-            //        ArtistName = artistName,
-            //        AlbumTitle = albumTitle,
-            //        TrackTitle = trackTitle,
-            //        TrackNumber = trackNumber
-            //    }
-            //);
-        }
-
-        #endregion
-
+  
         #region Given
-        [Given(@"the folder has no analysis cache")]
-        public void GivenTheFolderHasNoAnalysisCache()
+        [Given(@"the music folder hasn't been analysed")]
+        public void GivenTheMusicFolderHasnTBeenAnalysed()
         {
             _folder.Analysis = null;
         }
+
 
         [Given(@"the folder has an analysis cache")]
         public void GivenTheFolderHasAnAnalysisCache()
@@ -58,12 +37,17 @@ namespace MusicPresort.Specs
             _folder.Analysis = _fixture.Build<AnalysisCache>().Create();
         }
 
+        [Given(@"the music folder has been analysed with errors")]
+        public void GivenTheMusicFolderHasBeenAnalysedWithErrors()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
-            _folder = _fixture.Create<MusicFolder>();
-            _folderPath = string.Format(@"C:\{1}\{0}", _folder.FullPath, _fixture.Create<string>());
-            _folder.FullPath = _folderPath;
+            _folder = _fixture.Create<MusicFolder>();            
         }
 
         [Given(@"the music folder hasn't been processed")]
