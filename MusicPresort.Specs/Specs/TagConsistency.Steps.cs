@@ -43,7 +43,10 @@ namespace MusicPresort.Specs
         [Given(@"I have a music folder")]
         public void GivenIHaveAMusicFolder()
         {
-            _folder = new MusicFolder();
+            _folder = new MusicFolder(){
+                FullPath = @"C:\testpath\2010-01-01 someFolder",
+                FileName = @"2010-01-01 someFolder",
+            };
         }
 
         [Given(@"the folder has MP3s with mixed artist names")]
@@ -135,7 +138,7 @@ namespace MusicPresort.Specs
         [Then(@"the folder analysis should contain an error ""(.*)""")]
         public void ThenTheFolderAnalysisShouldContainAnError(string p0)
         {
-            Assert.True(_folder.Analysis.Errors.Any(x=>x == p0));
+            Assert.True(_folder.Analysis.Errors.Any(x=>x.ToString() == p0));
         }
         #endregion
     }

@@ -113,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 21
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 22
- testRunner.And("the folder analysis should contain an error \"Mixed album titles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MixedAlbumTitles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -135,7 +135,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 29
- testRunner.And("the folder analysis should contain an error \"Missing artist names\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MixedArtistNames\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -157,7 +157,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 35
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 36
- testRunner.And("the folder analysis should contain an error \"Missing album titles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MissingAlbumTitles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -179,7 +179,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 42
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 43
- testRunner.And("the folder analysis should contain an error \"Missing track titles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MissingTrackTitles\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -201,7 +201,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 50
- testRunner.And("the folder analysis should contain an error \"Missing track numbers\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"MissingTrackNumbers\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -223,7 +223,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 56
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 57
- testRunner.And("the folder analysis should contain an error \"Invalid track numbers\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"InvalidTrackNumbers\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -245,7 +245,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 63
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 64
- testRunner.And("the folder analysis should contain an error \"Invalid track number sequence\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"InvalidTrackNumberSequence\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -284,7 +284,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 75
  testRunner.Then("the folder analysis status should be \"Not Ready\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 76
- testRunner.And("the folder analysis should contain an error \"No MP3s found\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the folder analysis should contain an error \"NoMp3sFound\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

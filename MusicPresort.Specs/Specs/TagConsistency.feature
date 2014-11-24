@@ -19,49 +19,49 @@ Scenario: Mixed album titles
 	And the folder has MP3s with mixed album titles
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Mixed album titles"
+	And the folder analysis should contain an error "MixedAlbumTitles"
 
 Scenario: Missing artist names
 	Given I have a music folder
 	And the folder has MP3s with missing artist names
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Missing artist names"
+	And the folder analysis should contain an error "MixedArtistNames"
 
 Scenario: Missing album titles
 	Given I have a music folder
 	And the folder has MP3s with missing album titles
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Missing album titles"
+	And the folder analysis should contain an error "MissingAlbumTitles"
 
 Scenario: Missing track titles
 	Given I have a music folder
 	And the folder has MP3s with missing track titles
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Missing track titles"
+	And the folder analysis should contain an error "MissingTrackTitles"
 
 Scenario: Missing track numbers
 	Given I have a music folder
 	And the folder has MP3s with missing track numbers
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Missing track numbers"
+	And the folder analysis should contain an error "MissingTrackNumbers"
 
 Scenario: Invalid track numbers
 	Given I have a music folder
 	And the folder has MP3s with invalid track numbers
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Invalid track numbers"
+	And the folder analysis should contain an error "InvalidTrackNumbers"
 
 Scenario: Incomplete sequence of track numbers
 	Given I have a music folder
 	And the folder has MP3s with an incomplete sequence of track numbers
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "Invalid track number sequence"
+	And the folder analysis should contain an error "InvalidTrackNumberSequence"
 
 @ignore
 Scenario: No tags
@@ -73,4 +73,4 @@ Scenario: No MP3s
 	And the folder has no MP3s
 	When I analyse the folder
 	Then the folder analysis status should be "Not Ready"
-	And the folder analysis should contain an error "No MP3s found"
+	And the folder analysis should contain an error "NoMp3sFound"

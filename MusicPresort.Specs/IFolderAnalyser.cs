@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Linq;
 using MusicPresort.Specs;
@@ -9,7 +11,20 @@ namespace MusicPresort
     public interface IFolderAnalyser
     {
         AnalysisCache Analyse(MusicFolder folder);
-        bool IsValid(MusicFolder folder);
+    }
+
+    public enum AnalysisError
+    {
+        None,
+        NoMp3sFound,
+        MissingArtistNames,
+        MissingAlbumTitles,
+        MissingTrackNumbers,
+        InvalidTrackNumbers,
+        InvalidTrackNumberSequence,
+        MissingTrackTitles,
+        MixedArtistNames,
+        MixedAlbumTitles,
     }
 
     public class FolderAnalyser : IFolderAnalyser
@@ -32,6 +47,11 @@ namespace MusicPresort
                 result.Files.Add(new DataFile{FullPath = file.Path});
             }
 
+            foreach (var error in GetErrors(folder))
+            {
+                result.Errors.Add(error);
+            }
+
             folder.Analysis = result;
 
             _fileSystem.File.WriteAllText(folder.AnalysisCachePath(), JsonSerializer.SerializeToString(result));
@@ -39,27 +59,25 @@ namespace MusicPresort
             return result;
         }
 
-        public bool IsValid(MusicFolder folder)
+        public IEnumerable<AnalysisError> GetErrors(MusicFolder folder)
         {
-            if (!folder.Files.Any()) return false;
+            if (!folder.Files.Any()) yield return AnalysisError.NoMp3sFound;
 
-            if (folder.Files.Any(IsArtistMissing)) return false;
+            if (folder.Files.Any(IsArtistMissing)) yield return AnalysisError.MissingArtistNames;
 
-            if (folder.Files.Any(IsAlbumMissing)) return false;
+            if (folder.Files.Any(IsAlbumMissing)) yield return AnalysisError.MissingAlbumTitles;
 
-            if (folder.Files.Any(IsTrackNumberMissing)) return false;
+            if (folder.Files.Any(IsTrackNumberMissing)) yield return AnalysisError.MissingTrackNumbers;
 
-            if (folder.Files.Any(IsTrackNameMissing)) return false;
+            if (folder.Files.Any(IsTrackNameMissing)) yield return AnalysisError.MissingTrackTitles;
 
-            if (folder.Files.Any(IsTrackNumberInvalid)) return false;
+            if (folder.Files.Any(IsTrackNumberInvalid)) yield return AnalysisError.InvalidTrackNumbers;
 
-            if (IsTrackNumberSequenceIncomplete(folder)) return false;
+            if (IsTrackNumberSequenceIncomplete(folder)) yield return AnalysisError.InvalidTrackNumberSequence;
 
-            if (folder.Files.Any(x => x.ArtistName != folder.Files[0].ArtistName)) return false;
+            if (folder.Files.Any(x => x.ArtistName != folder.Files[0].ArtistName)) yield return AnalysisError.MixedArtistNames;
 
-            if (folder.Files.Any(x => x.AlbumTitle != folder.Files[0].AlbumTitle)) return false;
-
-            return true;
+            if (folder.Files.Any(x => x.AlbumTitle != folder.Files[0].AlbumTitle)) yield return AnalysisError.MixedAlbumTitles;            
         }
 
         public FolderAnalyser(IFileSystem fileSystem)

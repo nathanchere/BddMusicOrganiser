@@ -32,16 +32,16 @@ namespace MusicPresort
        
         public void ProcessFolder(MusicFolder folder)
         {
-            if (folder.Analysis != null) return;
+            //if (folder.Analysis != null) return;
 
-            if(!_analyser.IsValid(folder)) _processor.Process(folder);
+            //if(!_analyser.IsValid(folder)) _processor.Process(folder);
 
-            if (!_analyser.IsValid(folder))
-                BadFolders.Add(folder); // TODO: probably change these tests
-            else
-                GoodFolders.Add(folder);
+            //if (!_analyser.IsValid(folder))
+            //    BadFolders.Add(folder); // TODO: probably change these tests
+            //else
+            //    GoodFolders.Add(folder);
 
-            folder.Analysis = new AnalysisCache(null);
+            //folder.Analysis = new AnalysisCache(null);
         }
                
     }
