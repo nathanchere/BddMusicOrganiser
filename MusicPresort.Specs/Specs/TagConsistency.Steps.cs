@@ -117,6 +117,14 @@ namespace MusicPresort.Specs
             AddFile("Some artist", "Some album", "Track 3", 3);
         }
 
+        [Given(@"the folder has MP3s with missing tags")]
+        public void GivenTheFolderHasMPsWithMissingTags()
+        {
+            AddFile("Some artist", "Some album", "Track 1", 1);
+            _folder.Files.Add(new MusicFile { Tag = null });
+            AddFile("Some artist", "Some album", "Track 3", 3);
+        }
+
         [Given(@"the folder has no MP3s")]
         public void GivenTheFolderHasNoMP3s()
         {
